@@ -1,0 +1,15 @@
+lektion-audio-liste {
+
+  #lektion-audio-liste-punkt {
+.mat-list-text {
+    width: auto !important;
+  }
+}
+  .mat-list-base .mat-list-item.mat-2-line {
+    height: auto !important;
+    min-height: 72px !important;
+  }
+  .mat-list-base .mat-list-item .mat-list-item-content {
+    cursor: pointer;
+  }
+}

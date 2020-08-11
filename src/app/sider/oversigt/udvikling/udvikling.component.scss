@@ -1,0 +1,279 @@
+// @import "src/@fuse/scss/fuse";
+
+@import '../../../../styles-variables';
+
+
+
+
+#udvikling-oversigt {
+
+    .main-widget {
+        display: flex;
+        flex-direction: column;
+
+        #statistik-udvikling  {
+            background: #375e5e;
+            color: white;
+        
+        }
+        > div  {
+            background: #375e5e;
+        
+        }
+    }
+
+    .content {
+        display: flex;
+      padding-top: 32px;
+        min-width: 0;
+
+        @include media-breakpoint('lt-lg') {
+            flex-direction: column;
+        }
+
+        .left {
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 auto;
+            min-width: 0;
+            padding-left: 32px;
+
+            .widget {
+                flex: 1 1 auto;
+                min-width: 0;
+            }
+        }
+
+        .right {
+            display: flex;
+            flex: 0 0 auto;
+            width: 320px;
+            min-width: 320px;
+            max-width: 320px;
+            padding-right: 32px;
+
+            @include media-breakpoint('lt-lg') {
+                flex: 1 0 100%;
+                margin-top: 32px;
+                width: 100%;
+                min-width: 0;
+                max-width: none;
+            }
+
+            .fuse-card {
+
+                @include media-breakpoint('lt-lg') {
+                    width: 100%;
+                    min-width: 0;
+                    max-width: none;
+                }
+            }
+        }
+    }
+
+}
+
+.chartjs-size-monitor, .chartjs-size-monitor-expand, .chartjs-size-monitor-shrink {
+    position: absolute;
+    direction: ltr;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    pointer-events: none;
+    visibility: hidden;
+    z-index: -1;
+}
+
+.chartjs-size-monitor-expand > div {
+
+    position: absolute;
+    width: 1000000px;
+    height: 1000000px;
+    left: 0;
+    top: 0;
+
+}
+
+.chartjs-render-monitor {
+
+    animation: chartjs-render-animation 0.001s;
+
+}
+
+.fuse-card  {
+max-width: 320px !important;
+min-width: 320px !important;
+}
+
+.fuse-card.auto-width {
+    max-width: none !important;
+    min-width: auto !important;
+    }
+
+    .mat-form-field {
+        display: inline-block;
+        position: relative;
+        text-align: left;
+    }
+
+    .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+    padding-bottom: 1.25em;
+}
+
+.mat-form-field-type-mat-select:not(.mat-form-field-disabled) .mat-form-field-flex {
+    cursor: pointer;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-infix {
+    padding: 0.4375em 0;
+}
+
+.mat-select {
+    display: inline-block;
+    width: 100%;
+    outline: none;
+}
+
+.mat-form-field.mat-form-field-type-mat-select .mat-form-field-infix .mat-select-trigger {
+    display: -webkit-inline-box;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 100%;
+}
+
+.mat-form-field.mat-form-field-type-mat-select .mat-form-field-infix .mat-select-trigger .mat-select-value {
+    display: -webkit-box;
+    display: flex;
+    max-width: none;
+    margin-right: 8px;
+}
+
+.mat-select-value-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mat-form-field.mat-form-field-type-mat-select .mat-form-field-infix .mat-select-trigger .mat-select-arrow-wrapper {
+    display: -webkit-inline-box;
+    display: inline-flex;
+}
+
+.mat-select-arrow {
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-subscript-wrapper {
+    margin-top: 0.5416666667em;
+    top: calc(100% - 1.6666666667em);
+}
+
+.mat-form-field-hint-wrapper {
+    display: flex;
+}
+
+.mat-form-field-hint-spacer {
+    flex: 1 0 1em;
+}
+
+button .mat-button-wrapper {
+    line-height: normal;
+}
+
+.mat-button-ripple.mat-ripple, .mat-button-focus-overlay {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    pointer-events: none;
+    border-radius: inherit;
+}
+
+.mat-button-focus-overlay {
+    background: black;
+        background-color: black;
+}
+
+.mr-lg-32 {
+    margin-right: 32px !important;
+}
+.h-368 {
+    height: 368px !important;
+    min-height: 368px !important;
+    max-height: 368px !important;
+}
+
+table.simple {
+    width: 100%;
+    border: none;
+    border-spacing: 0;
+    text-align: left;
+}
+
+table.simple thead tr th {
+    color: rgba(0, 0, 0, 0.54);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+table.simple thead tr th:first-child {
+    padding-left: 24px;
+}
+
+table.simple thead tr th {
+    padding: 16px 8px;
+        padding-left: 8px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+table thead tr th {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+table.simple thead tr th:last-child {
+    padding-right: 24px;
+}
+
+table.simple {
+    border-spacing: 0;
+    text-align: left;
+}
+
+table.simple.clickable tbody tr {
+    cursor: pointer;
+}
+
+table.simple tbody tr td {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+table.simple tbody tr td:first-child {
+    padding-left: 24px;
+}
+
+table.simple tbody tr td {
+    padding: 16px 8px;
+        padding-left: 8px;
+}
+
+.light-accent-600 {
+    background-color: darkslategray !important;
+    color: white !important;
+}
+
+.fuse-card .mat-tab-labels {
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.mat-tab-labels {
+    display: flex;
+}

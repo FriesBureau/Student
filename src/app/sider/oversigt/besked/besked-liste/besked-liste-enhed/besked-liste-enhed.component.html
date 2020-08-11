@@ -1,0 +1,48 @@
+<div fxLayout="row" fxLayoutAlign="start center">
+
+    <mat-checkbox [checked]="selected" (change)="onSelectedChange()"
+                  (click)="$event.stopPropagation();">
+    </mat-checkbox>
+
+    <div class="info" fxFlex FlexLayout="column">
+
+        <div class="row-1" fxLayout="row" fxLayoutAlign="start center">
+
+            <div class="name" fxLayout="row" fxLayoutAlign="start center" fxFlex>
+                <img class="avatar" *ngIf="besked.from?.avatar" alt="{{besked.from?.name}}" src="{{besked.from?.avatar}}"/>
+                <div class="avatar accent" *ngIf="!besked.from?.avatar">{{besked.from?.name[0]}}</div>
+                <span class="text-truncate" *ngIf="besked?.from">{{besked.from?.name}}</span>
+                <mat-icon class="s-16 ml-8" *ngIf="besked.hasAttachments">attachment</mat-icon>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="start center">
+                <div class="time">{{besked.time}}</div>
+            </div>
+
+        </div>
+
+        <div class="row-2" fxLayout="row" fxLayoutAlign="start center">
+
+            <div fxLayout="column" fxLayoutAlign="start start">
+
+                <div class="subject text-truncate">
+                    {{besked.subject}}
+                </div>
+
+                <div class="message text-truncate" *ngIf="besked?.message">
+                    {{besked.message | htmlToPlaintext | slice:0:180}}{{besked.message.length > 180 ? '...' : ''}}
+                </div>
+
+                <div class="labels" fxLayout="row wrap" fxHide fxShow.gt-sm>
+                    <div class="label" *ngFor="let labelId of besked.labels"
+                         fxLayout="row" fxLayoutAlign="start center">
+                        <div class="label-color"
+                             [ngStyle]="{'background-color': (labels$ | async) | getById:labelId:'color'}"></div>
+                        <div class="label-title">{{(labels$ | async) | getById:labelId:'title'}}</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

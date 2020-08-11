@@ -1,0 +1,141 @@
+// @import "src/@fuse/scss/fuse";
+
+@import '../../../../../styles-variables';
+
+#dokumenter {
+ 
+
+    .sidebar {
+        width: 100%;
+        min-width: 220px !important;
+        max-width: 220px !important;
+        background: white;
+        height: auto;
+        min-height: 100vh;
+        box-shadow: 0px 4px 5px -2px rgba(0, 0, 0, 0.2), 0px 7px 10px 1px rgba(0, 0, 0, 0.14), 0px 2px 16px 1px rgba(0, 0, 0, 0.12);
+
+        &.main-sidebar {
+        }
+
+        &.details-sidebar {
+            @include media-breakpoint('gt-md') {
+                z-index: 0;
+            }
+        }
+    }
+
+    .center {
+        overflow: hidden;
+
+        .header {
+            position: relative;
+            height: 72px;
+            min-height: 72px;
+            max-height: 72px;
+            flex-direction: row;
+            box-sizing: border-box;
+            display: flex;
+            place-content: center flex-start;
+            align-items: center;
+            background: #375e5e;
+            color: white;
+
+            @include media-breakpoint('lt-md') {
+                height: 120px;
+                min-height: 120px;
+                max-height: 120px;
+            }
+
+            .add-file-button {
+                position: absolute;
+                bottom: -36px;
+                left: 16px;
+                z-index: 999;
+                background-color: #ff5722;
+            }
+        }
+
+        .content {
+            flex: 1 1 auto;
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+    }
+
+    .type-icon {
+
+        &.folder {
+            &:before {
+                content: 'folder';
+                color: #FFB300;
+            }
+        }
+
+        &.document {
+            &:before {
+                content: 'insert_drive_file';
+                color: #1565C0;
+            }
+        }
+
+        &.spreadsheet {
+            &:before {
+                content: 'insert_chart';
+                color: #4CAF50;
+            }
+        }
+    }
+}
+
+
+.nav.material2 .nav-item .nav-link, .material2 .nav .nav-item .nav-link {
+    padding: 0 12px 0 24px;
+    margin-right: 16px;
+    height: 40px;
+  }
+
+  .nav .nav-item .nav-link {
+    text-decoration: none !important;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+
+
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: currentColor;
+}
+
+  .nav .nav-item .nav-link {
+    cursor: pointer;
+    color: currentColor;
+}
+
+.nav .nav-item .nav-link .nav-link-icon {
+    margin-right: 16px;
+}
+
+.nav .nav-item .nav-link .nav-link-icon, .nav .nav-item .nav-link .collapsable-arrow {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    min-width: 16px;
+    min-height: 16px;
+    line-height: 16px;
+}
+
+.mat-icon {
+    background-repeat: no-repeat;
+    display: inline-block;
+    fill: currentColor;
+}
+
+.text-truncate {
+    overflow: visible !important;
+}

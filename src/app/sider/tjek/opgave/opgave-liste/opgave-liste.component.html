@@ -1,0 +1,18 @@
+<div *ngIf="opgaver.length === 0" fxLayout="column" fxLayoutAlign="center center" fxFlexFill>
+    <span class="no-todos-text hint-text">There are no todos!</span>
+</div>
+
+
+<div class="opgave-liste" ngxDroppable [model]="opgaver" (out)="onDrop($event)">
+  
+        <opgave-liste-item class="opgave-list-item has-handle"
+                    *ngFor="let opgave of opgaver" [opgave]="opgave"
+                    ngxDraggable
+                    [model]="opgave"
+                    (click)="readOpgave(opgave.id)"
+                    [ngClass]="{'current-opgave':opgave?.id == currentOpgave?.id}"
+                   >
+    </opgave-liste-item>
+
+
+</div>

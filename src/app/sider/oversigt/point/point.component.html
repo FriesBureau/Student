@@ -1,0 +1,41 @@
+
+
+
+<div class="point">
+    <mat-list id="pointliste" color="accent"> 
+      <h3 mat-subheader>Point</h3>
+      <mat-list-item>
+        <mat-icon color="primary" mat-list-icon>assignment_turned_in</mat-icon>
+        <h4 mat-line>Tasks done</h4>
+   
+        <mat-divider></mat-divider>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon color="primary" mat-list-icon>filter_3</mat-icon>
+        <h4 mat-line>Level</h4>
+    
+        <mat-divider></mat-divider>
+      </mat-list-item>
+    
+      <mat-list-item class="time-average">
+        <mat-icon color="primary" mat-list-icon>time_laps</mat-icon>
+        <h4 mat-line>Avg. answer time</h4>
+    
+        <mat-divider></mat-divider>
+      </mat-list-item>
+      
+      <mat-list-item class="success-rate">
+        <mat-icon color="primary">delete_forever</mat-icon>
+        <h4 mat-line>Success rate</h4>
+    
+        <mat-divider></mat-divider>
+      </mat-list-item>
+    </mat-list>
+    
+    </div>
+    
+    
+    <ng-template #login>
+      <button class="button" (click)="auth.googleSignin()">Log ind med Google</button>
+    </ng-template>
+    

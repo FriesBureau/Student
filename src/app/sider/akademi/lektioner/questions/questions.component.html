@@ -1,0 +1,18 @@
+<div *ngIf="auth.user$ | async as user;"
+  cdkDropList
+  cdkDropListOrientation="horizontal"
+  class="boards"
+  (cdkDropListDropped)="drop($event)"
+>
+<!--  <app-question cdkDrag *ngFor="let board of boards | slice:0:1;" [board]="board">--> 
+
+ 
+
+    <app-question cdkDrag *ngFor="let board of boards" [board]="board">
+    <mat-icon cdkDragHandle class="handle">drag_indicator</mat-icon>
+  </app-question>
+ 
+  
+
+
+</div>

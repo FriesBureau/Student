@@ -1,0 +1,16 @@
+<mat-list class="playliste" color="primary">
+  <mat-list-item  id="lektion-audio-liste-punkt" *ngFor="let audio of lydfiler; let i = index" (click)="openLektionAudio(audio, i)">
+  <div *ngIf="audio.extension === 'mp3'">    <mat-icon color="primary" mat-list-icon>library_music</mat-icon>
+    <h4 mat-line>{{ audio.title }}</h4>
+    <h5 mat-line>i {{ audio.path }}</h5>
+
+    <mat-divider></mat-divider>
+  </div>
+  <div *ngIf="audio.extension !== 'mp3'"> 
+    No sound files uploaded
+    </div>
+
+  </mat-list-item>
+
+</mat-list>
+

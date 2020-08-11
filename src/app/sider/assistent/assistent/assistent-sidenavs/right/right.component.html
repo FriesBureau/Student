@@ -1,0 +1,9 @@
+<div [ngSwitch]="view" class="views">
+
+    <assistent-contact-sidenav class="view"
+                          *ngSwitchCase="'contact'"
+                          [@slideInRight]
+                          fusePerfectScrollbar>
+    </assistent-contact-sidenav>
+
+</div>

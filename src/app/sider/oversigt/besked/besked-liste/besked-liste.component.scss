@@ -1,0 +1,31 @@
+besked-liste {
+    display: flex;
+    flex: 1 0 auto;
+    position: relative;
+    padding: 0;
+    border-right: 1px solid;
+    overflow-y: auto; 
+    -webkit-overflow-scrolling: touch;
+    flex-direction: row;
+    box-sizing: border-box;
+    display: flex;
+    -webkit-box-flex: 1;
+    flex: 1 1 auto;
+    overflow: auto;
+    max-height: 100vh;
+    min-height: 550px;
+        background: white;
+    
+
+    .no-messages-text {
+        font-size: 24px;
+        font-weight: 300;
+    }
+
+    .besked-liste {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+}

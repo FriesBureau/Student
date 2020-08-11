@@ -1,0 +1,102 @@
+<mat-card class="outer-card" *ngIf="auth.user$ | async as user;">
+  <div *ngIf="user.brugerrolle === 'demo'">
+  <mat-card-header>
+    <!-- Slot for the handle -->
+    <ng-content></ng-content>
+    <mat-card-title>
+      {{ board.titel }}
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{ board.id }}
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <div
+    class="svar"
+    cdkDropList
+    cdkDropListOrientation="vertical"
+    (cdkDropListDropped)="svarDrop($event)"
+  >
+ 
+ 
+<div 
+class="inner-card"
+cdkDrag
+*ngFor="let brugersvar of board.svar; let i = index"
+(click)="tjekSvar(brugersvar, i)"
+>
+   
+      <mat-card [ngClass]="brugersvar.label"> {{ brugersvar.svar }} </mat-card>
+    </div>
+
+   </div>
+</div>
+ 
+<div *ngIf="user.brugerrolle === 'ejer'">
+  <mat-card-header>
+    <ng-content></ng-content>
+    <mat-card-title>
+      {{ board.titel }}
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{ board.trinid }}
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <div
+    class="svar"
+    cdkDropList
+    cdkDropListOrientation="vertical"
+    (cdkDropListDropped)="svarDrop($event)"
+  >
+ 
+    <div
+      class="inner-card"
+      cdkDrag
+      *ngFor="let svar of board.svar; let i = index"
+      (click)="openDialog(svar, i)"
+    >
+ 
+ 
+
+   
+      <mat-card [ngClass]="svar.label"> {{ svar.svar }} </mat-card>
+    </div>
+
+      <button mat-stroked-button (click)="openDialog()">
+        <mat-icon>add</mat-icon>
+      </button> 
+
+      <button
+      mat-stroked-button 
+      color="primary"
+      cdkDragDisabled
+       
+    >
+    <mat-icon>delete</mat-icon>
+    </button>
+  
+   
+
+   
+
+
+    <div class="board-button">
+      <button
+      mat-stroked-button 
+        color="accent"
+        cdkDragDisabled
+        (click)="openBoardDialog()"
+      >
+      <mat-icon>note_add</mat-icon>
+      </button>
+
+
+    </div>
+
+  </div>
+</div> 
+
+ 
+
+</mat-card>

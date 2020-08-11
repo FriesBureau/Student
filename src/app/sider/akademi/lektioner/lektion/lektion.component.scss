@@ -1,0 +1,27 @@
+ 
+ app-lektioner {
+    display: flex;
+    width: 100%;
+    .quiz {
+        display:  none;
+        width: 100%;
+        margin: 2rem;
+    }
+ }
+
+.input-with-voice{
+    margin: 5px;
+}
+.mat-form-field {
+width: 100%;
+}
+
+.radio-lang {
+    margin-right: 8px
+}
+
+.only-numbers{ text-align:right }
+
+#udtale  {
+width: 50%;
+}

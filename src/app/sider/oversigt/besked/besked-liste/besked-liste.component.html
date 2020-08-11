@@ -1,0 +1,9 @@
+<div *ngIf="beskeder.length === 0" fxLayout="column" fxLayoutAlign="center center" fxFlexFill>
+    <span class="no-messages-text hint-text">{{ 'BESKED.NO_MESSAGES' | translate }}</span>
+</div>
+
+<div class="besked-liste">
+    <besked-liste-enhed *ngFor="let besked of beskeder" [besked]="besked" (click)="readBesked(besked.id)"
+                    [ngClass]="{'current-besked':besked?.id == currentBesked?.id}">
+    </besked-liste-enhed>
+</div>

@@ -1,0 +1,44 @@
+@import '../../../../../styles-variables';
+
+
+opgave-liste {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+    position: relative;
+    padding: 0;
+    border-right: 1px solid;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+
+    flex-direction: row;
+    box-sizing: border-box;
+    display: flex;
+    -webkit-box-flex: 1;
+    flex: 1 1 auto;
+    overflow: auto;
+    max-height: 100vh;
+    min-height: 550px;
+    margin: 1rem 2rem;
+        background: white;
+
+    .opgave-liste {
+        width: 100%;
+    }
+  
+
+    .no-todos-text {
+        font-size: 24px;
+        font-weight: 300;
+    }
+}
+#opgaveindhold {
+    flex-direction: row;
+    box-sizing: border-box;
+    display: flex;
+    -webkit-box-flex: 1;
+    flex: 1 1 auto;
+    overflow: auto;
+    max-height: 100vh;
+    min-height: 550px;
+}

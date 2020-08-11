@@ -1,0 +1,235 @@
+{
+    "id": 1,
+    "name": "Lyde - Alfabetet",
+    "description": "Lyde - Alfabetet",
+    "questions": [
+        {
+            "id": 1010,
+            "name": "Lyt og udtal bogstaverne a, b, c, d",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "a, b, c, d",
+                    "answer": "a b c d",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1011,
+            "name": "Lyt og udtal bogstaverne e, f, g, h",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "e, f, g, h",
+                    "answer": "e f g h",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },   {
+            "id": 1012,
+            "name": "Lyt og udtal bogstaverne j, k, l",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "j, k, l",
+                    "answer": "j k l",
+
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1013,
+            "name": "Lyt og udtal bogstaverne m, n, o, p, r",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "m, n, o, p, r",
+                    "answer": "m n o p r",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1014,
+            "name": "Lyt og udtal bogstavet q",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "bogstavet q",
+                    "answer": "bogstavet q",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+           {
+            "id": 1015,
+            "name": "Lyt og udtal bogstaverne s, t, u",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "s, t, u",
+                    "answer": "s t u",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1016,
+            "name": "Lyt og udtal bogstaverne v, x",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "v, x",
+                    "answer": "v x",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1017,
+            "name": "Lyt og udtal bogstavet y ",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "y",
+                    "answer": " y",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1018,
+            "name": "Lyt og udtal bogstavet z",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "bogstavet Z",
+                    "answer": "bogstavet Z",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1019,
+            "name": "Lyt og udtal æ",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "bogstavet æ",
+                    "answer": "bogstavet æ",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1020,
+            "name": "Lyt og udtal sætningen en ø",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "en, ø",
+                    "answer": "en ø",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1020,
+            "name": "Lyt og udtal sætningen en å",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "en, å",
+                    "answer": "en å",                
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        }
+    ]
+}

@@ -1,0 +1,105 @@
+<ng-container *ngIf=" auth.user$ | async as user">
+  <ng-container *ngIf="chat$ | async as chat">
+    
+  
+      <div class="top">
+        <p><a class="tag" routerLink="/">Back</a>
+          <span class="tag is-success">
+            https://friesbureau-demo.firebaseapp.com/chats/{{ chat.id }}
+          </span>
+        </p>
+      </div>
+  
+  
+      <div #chatBox class="chat">
+  
+  
+        <div class="msg animated zoomInUp" *ngFor="let msg of chat.messages; trackBy: trackByCreated">
+  
+          <div class="user">
+            <img [src]="msg.user?.photoURL || 'assets/unicorn.svg'" width="50px">
+            <div><span class="tag is-dark">{{ msg.user?.displayName || msg.user?.uid }}</span></div>
+  
+            <button *ngIf="chat.uid === user.uid || msg.uid === user.uid" class="button is-danger is-small" (click)="assist.deleteMessage(chat, msg)">Delete</button>
+  
+          </div>
+  
+          <p>{{ msg.content }}</p>
+  
+  
+        </div>
+  
+  
+  
+      </div>
+  
+      <div class="form">
+        <input class="input" [(ngModel)]="newMsg" maxlength="100" (keydown.enter)="submit(chat.id)">
+  
+        <button (click)="submit(chat.id)" class="button is-info" [disabled]="!newMsg">Send</button>
+
+      </div>
+  
+    </ng-container>
+  </ng-container>
+
+
+  <!-- CHAT CONTENT -->
+  <div id="chat-content" fxFlex="1 1 auto">
+
+    <!-- CHAT MESSAGES -->
+    <div class="chat-messages">
+
+        <!-- MESSAGE -->
+        <div *ngFor="let message of dialog; let i = index" class="message-row"
+          >
+
+            <img 
+                 src=""
+                 class="avatar">
+
+            <div class="bubble">
+                <div class="message">{{message.message}}</div>
+                <div class="time secondary-text">{{message.time | date:'short'}}</div>
+            </div>
+
+        </div>
+        <!-- / MESSAGE -->
+
+    </div>
+    <!-- CHAT MESSAGES -->
+
+</div>
+<!-- / CHAT CONTENT -->
+
+<!-- CHAT FOOTER -->
+<div class="chat-footer" fxFlex="0 0 auto" fxLayout="column">
+
+    <!-- REPLY FORM -->
+    <div class="reply-form" fxFlex="0 0 auto" fxLayout="row" fxLayoutAlign="center center">
+
+        <form #replyForm="ngForm"
+              (ngSubmit)="reply($event)"
+              (keydown.enter)="reply($event)"
+              fxFlex fxLayout="row" fxLayoutAlign="start center">
+
+            <mat-form-field class="message-text" fxFlex floatLabel="never" appearance="standard">
+                <textarea matInput #replyInput placeholder="Type your message"
+                          ngModel name="message" [rows]="1" [matTextareaAutosize]="true"></textarea>
+            </mat-form-field>
+
+            <button class="send-message-button" mat-icon-button type="submit" aria-label="Send message">
+                <mat-icon class="secondary-text">send</mat-icon>
+            </button>
+
+        </form>
+
+    </div>
+    <!-- / REPLY FORM -->
+
+</div>
+<!-- / CHAT FOOTER-->
+
+ 
+
+ 

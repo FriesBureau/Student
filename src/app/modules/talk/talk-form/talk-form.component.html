@@ -1,0 +1,115 @@
+<div id="root-div" fxFlexFill fxLayout="row nowrap" fxLayoutAlign="center center">
+
+
+       
+  
+
+      <div style="width: 80vw; margin: auto;" id="quiz" *ngIf="mode=='quiz' && quiz">
+          <div id="antal" *ngFor="let question of filteredQuestions;">
+              <mat-form-field>
+              <mat-select [(ngModel)]="quizName" (selectionChange)="loadQuiz(quizName)">
+                  <mat-option *ngFor="let quiz of quizes" [value]="quiz.id">{{ quiz.name }}</mat-option>
+                </mat-select>
+                </mat-form-field>
+
+  <mat-card fxFlex class="mat-elevation-z12" fxFlex.lt-sm="100%" fxFlex.gt-sm="100%">
+    <mat-card-header>
+
+
+
+      <mat-card-title>   
+          <div class="badge badge-info"><h5>Spørgsmål {{pager.index + 1}} af {{pager.count}}.</h5></div>
+          <span style="margin:auto;"><button mat-fab color="primary" class="score">Point: {{ scores[0] }}</button></span>
+          <div *ngIf="config.duration" class="badge badge-info tid">
+          <h5>Tid: {{ellapsedTime}} / {{duration}}</h5></div>
+        <h4 class="font-weight-normal">{{pager.index + 1}}.
+          <span [innerHTML]="question.name"></span>
+        </h4>        
+
+        
+     
+
+      </mat-card-title>
+
+     
+      <mat-card-subtitle>Klik på mikrofonen først og indtal din besked</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content [formGroup]="talkForm" fxLayout="column nowrap">
+
+
+        <div style="width: 100%; margin: auto;" id="svarmuligheder" *ngFor="let option of question.options">
+            <mat-form-field>
+            <input matInput id="spoergsmaal" placeholder value="{{option.name}}">
+            <button mat-mini-fab (click)="lyd()">
+                <mat-icon matSuffix>hearing</mat-icon>
+              </button>
+            </mat-form-field>
+        
+
+
+      <mat-radio-group fxLayout="row wrap" fxLayoutAlign="space-around center" formControlName="selectedLanguage">
+      <!--   <mat-radio-button name="langRadio" value="pt-BR" class="radio-lang">Português</mat-radio-button>
+        <mat-radio-button name="langRadio" value="en-US" class="radio-lang">English</mat-radio-button>-->
+        <mat-radio-button name="langRadio" value="da-DK">Dansk</mat-radio-button>
+      </mat-radio-group>
+
+      <div fxLayout="row nowrap" fxLayoutAlign="space-around center" class="input-with-voice">
+        <mat-form-field   appearance="outline">
+       <!--    <mat-label>Indtal: </mat-label>-->
+          <textarea id="{{reasonFieldName}}"  formControlName="reason" matInput placeholder="Indtal din besked"></textarea>
+          <mat-icon matSuffix>receipt</mat-icon>
+          <!-- <mat-hint>Indtal besked</mat-hint> -->
+        </mat-form-field>
+ 
+
+
+        <button mat-mini-fab (click)="toggleListening(reasonFieldName)" color="{{ListeningReason?'accent':'primary'}}" *ngIf="speech.SupportRecognition">
+          <mat-icon matSuffix>microphone</mat-icon>
+        </button>
+      </div>
+    </div>
+  
+<!-- 
+      <div fxLayout="row nowrap" fxLayoutAlign="space-around center" class="input-with-voice">
+
+
+        
+        <mat-form-field fxFlexFill appearance="outline">
+          <mat-label>Besked</mat-label>
+    <input inputmode="numeric" id="{{amountFieldName}}" formControlName="amount" type="number" matInput placeholder="Full amount" class="only-numbers" >
+<textarea id="{{amountFieldName}}" formControlName="amount" matInput placeholder="Indtal nu !"></textarea>
+<mat-icon matSuffix>receipt</mat-icon>
+          <mat-hint>Indtal besked</mat-hint>
+        </mat-form-field>
+
+        <button mat-mini-fab (click)="toggleListening(amountFieldName)" color="{{ListeningAmount?'accent':'primary'}}" *ngIf="speech.SupportRecognition">
+          <mat-icon matSuffix>microphone</mat-icon>
+        </button>
+      </div>
+    -->
+
+
+
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button color="accent" mat-button (click)="clearCard()">Nulstil</button>
+      <button [disabled]="talkForm.invalid" color="primary" mat-raised-button (click)="tjekSvar()">Gem</button>
+    </mat-card-actions>
+    <mat-card-footer class="footer-holder">
+
+
+  <div class="text-center">
+      <button mat-raised-button *ngIf="config.allowBack" (click)="goTo(0);">Første</button>
+      <button mat-raised-button  *ngIf="config.allowBack" (click)="goTo(pager.index - 1);">Forrige</button>
+  <!--    <button mat-raised-button  (click)="goTo(pager.index + 1);">Næste</button>--> 
+      <!--   <button mat-raised-button  *ngIf="config.allowBack" (click)="goTo(pager.count - 1);">Sidste</button> -->
+ <!--  <pagination *ngIf="config.showPager" direction-links="false" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged()"></pagination>-->
+    </div>
+
+      
+
+    </mat-card-footer>
+  </mat-card>
+</div>
+</div> 
+</div>

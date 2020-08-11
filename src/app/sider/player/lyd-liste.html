@@ -1,0 +1,10 @@
+<mat-list class="playliste" color="primary">
+  <mat-list-item id="lektion-audio-liste-punkt" *ngFor="let lyd of lyde; let i = index" (click)="openLydliste(lyd, i)">
+    <mat-icon color="primary" mat-list-icon>library_music</mat-icon>
+    <h4 mat-line>{{ lyd.name }}</h4>
+    <h5 mat-line>i {{ lyd.artist }}</h5>
+
+    <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-list>
+

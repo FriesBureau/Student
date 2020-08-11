@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "demo": "friesbureau-demo",
+    "default": "friesbureau-demo",
+    "student": "fries-bureau-student"
+  }
+}

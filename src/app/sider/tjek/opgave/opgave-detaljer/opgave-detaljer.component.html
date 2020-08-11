@@ -1,0 +1,293 @@
+<div *ngIf="!opgave" fxLayout="column" fxLayoutAlign="center center" fxFlex>
+    <mat-icon class="s-120 mb-12 select-opgave-icon hint-text"
+              [@animate]="{value:'*',params:{delay:'300ms',scale:'0.2'}}">check_box
+    </mat-icon>
+    <span class="hint-text mat-h1 select-opgave-text" [@animate]="{value:'*',params:{delay:'400ms'}}">
+        Select a opgave
+    </span>
+</div>
+
+
+<div *ngIf="opgave">
+<div *ngIf="auth.user$ | async as user;">
+    <div *ngIf="this.opgaveservice.opgave$ | async as asyncopgave; else createform" fxLayout="column" fxFlex="100">
+ 
+     <!-- <div class="opgave-tekst p-24" *ngIf="user.brugerrolle === 'demo'">--> 
+        <div class="opgave-tekst p-24">
+        <div class="opgave-header" fxLayout="row" fxLayoutAlign="space-between center">
+
+        <h3>Opgave: {{ asyncopgave.title }}</h3>
+ 
+
+            <div class="actions" fxLayout="row" fxLayoutAlign="start center">
+ 
+
+                <button
+                mat-button color="primary"
+     
+                (click)="getICS();"
+             
+                aria-label="DOWNLOAD">
+                <mat-icon class="red-fg">assignment_returned</mat-icon>
+        </button>
+     
+                <button mat-button class="toggle-complete-button" 
+                (click)="toggleCompleted(asyncopgave)" 
+           
+                        aria-label="Toggle completed" fxFlex="0 1 auto">
+                    <mat-icon *ngIf="asyncopgave.completed">check_box</mat-icon>
+                    <mat-icon *ngIf="!asyncopgave.completed">check_box_outline_blank</mat-icon>
+                    <span class="ml-8">Mark as Done</span>
+                </button>
+               
+        
+                    <button mat-icon-button (click)="toggleImportant(asyncopgave)" aria-label="Toggle important">
+                        <mat-icon class="red-fg" *ngIf="asyncopgave.important">error</mat-icon>
+                        <mat-icon class="secondary-text" *ngIf="!asyncopgave.important">error_outline</mat-icon>
+                    </button>
+        
+                    <button mat-icon-button (click)="toggleStarred(asyncopgave)" aria-label="Toggle star">
+                        <mat-icon class="amber-fg" *ngIf="asyncopgave.starred">star</mat-icon>
+                        <mat-icon class="secondary-text" *ngIf="!asyncopgave.starred">star_border</mat-icon>
+                    </button>
+    
+        
+                    <button mat-icon-button (click)="toggleDeleted($event)" aria-label="Toggle delete">
+                        <mat-icon class="secondary-text" *ngIf="asyncopgave.deleted">delete_forever</mat-icon>
+                        <mat-icon class="secondary-text" *ngIf="!opgave.deleted">delete</mat-icon>
+                    </button>
+   
+    
+
+    </div>   </div>
+
+    <p>Beskrivelse: {{ asyncopgave.notes }}</p>
+
+    <p>Start tidspunkt: {{ asyncopgave.start.seconds * 1000 | date:'full'}}</p> 
+    <p>Afleveringstidspunkt: {{ asyncopgave.end.seconds * 1000 | date:'full'}}</p> 
+
+ 
+</div>
+    <div class="opgave-content">
+
+      
+<div *ngIf="user.brugerrolle === 'administrator'">
+       
+            <!-- 
+                <button mat-icon-button [matMenuTriggerFor]="labelMenu" fxFlex="0 1 auto">
+                    <mat-icon class="secondary-text">label</mat-icon>
+                </button>
+    
+                <mat-menu #labelMenu="matMenu">
+                    <button mat-menu-item *ngFor="let tag of tags"
+                            (click)="toggleTagOnOpgave(tag.id)">
+                        <mat-icon *ngIf="hasTag(tag.id)">check</mat-icon>
+                        <mat-icon *ngIf="!hasTag(tag.id)"></mat-icon>
+                        <span>{{tag.title}}</span>
+                    </button>
+                </mat-menu>
+                -->
+
+        <form id="redigeropgave" [formGroup]="opgaveForm" (submit)="createOpgave()">
+         
+<!-- 
+            <div class="tags mb-24" fxFlexFill fxLayout="row wrap">
+                <div class="tag" fxLayout="row" fxLayoutAlign="start center" *ngFor="let tagId of opgave.tags">
+                    <div class="tag-color" [ngStyle]="{'background-color': tags | getById:tagId:'color'}"></div>
+                    <div class="tag-label">{{tags | getById:tagId:'title'}}</div>
+                </div>
+            </div>-->
+            <div class="opgave-header" fxLayout="row" fxLayoutAlign="space-between center">
+            <h3>Rediger opgave: Ændringer gemmes automatisk</h3>
+            </div>
+
+            <mat-form-field appearance="outline" class="title mt-8 p-0" fxFill>
+                <mat-label>Title</mat-label>
+                <textarea matInput
+                          #titleInput
+                          name="title"
+                          formControlName="title"
+                          required>
+                </textarea>
+            </mat-form-field> 
+
+            <div class="dates" fxFlexFill fxLayout="column" fxLayout.gt-xs="row">
+<!-- 
+                <mat-form-field appearance="outline" class="mr-sm-12" fxFlex>
+                    <mat-label>Start Date</mat-label>
+                    <input matInput [matDatepicker]="startDatePicker"  formControlName="startDate">
+                    <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+                    <mat-datepicker #startDatePicker></mat-datepicker>
+                </mat-form-field>
+                -->
+
+                <mat-form-field appearance="outline" class="ml-sm-12" >
+                <mat-label>Start tidspunkt</mat-label>
+                    <input matInput  
+                    
+                    name="start" formControlName="start" 
+                    [ngxMatDatetimePicker]="startDatePicker" placeholder="Choose a date"
+                 [max]="opgave.end.toDate()"  >
+                    <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+                    <ngx-mat-datetime-picker #startDatePicker 
+                    [showSpinners]="showSpinners" 
+                    [showSeconds]="showSeconds"
+                       [stepHour]="stepHour" [stepMinute]="stepMinute" [stepSecond]="stepSecond"
+                       [touchUi]="touchUi" [color]="color" [enableMeridian]="enableMeridian" 
+                       [disableMinute]="disableMinute" [hideTime]="hideTime">
+                    </ngx-mat-datetime-picker>
+                 </mat-form-field>
+ 
+
+                 <mat-form-field appearance="outline"  class="ml-sm-12">
+                    <mat-label>Slut tidspunkt</mat-label>
+                    <input matInput
+                    name="end" formControlName="end" placeholder="Choose a date"
+                    [ngxMatDatetimePicker]="endDatePicker"  
+                    [min]="opgave.start.toDate()" >
+                    <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+                    <ngx-mat-datetime-picker #endDatePicker 
+                    [showSpinners]="showSpinners" 
+                    [showSeconds]="showSeconds"
+                       [stepHour]="stepHour" [stepMinute]="stepMinute" [stepSecond]="stepSecond"
+                       [touchUi]="touchUi" [color]="primary" [enableMeridian]="enableMeridian" 
+                       [disableMinute]="disableMinute" [hideTime]="hideTime">
+                    </ngx-mat-datetime-picker>
+                 </mat-form-field>
+ 
+            </div>
+
+            <div class="booleans" fxFlexFill fxLayout="column" fxLayout.gt-xs="row">
+                <mat-slide-toggle name="completed" formControlName="completed" class="mr-24" aria-label="Task completed">
+                    Opgave fuldført
+                </mat-slide-toggle>
+    
+                    <mat-slide-toggle name="important" formControlName="important" class="mr-24" aria-label="Task important">
+                        Opgave er vigtig
+                    </mat-slide-toggle>
+    
+                    <mat-slide-toggle name="starred" formControlName="starred" class="mr-24" aria-label="Task starred">
+                        Opgave til opfølgning
+                    </mat-slide-toggle>
+        
+            </div>
+
+            <mat-form-field appearance="outline" fxFill class="p-0">
+                <mat-label>Notes</mat-label>
+                <textarea matInput #notes
+                          name="notes"
+                          formControlName="notes"
+                          maxlength="500">
+                </textarea>
+                <mat-hint align="end">{{notes.value.length}} / 500</mat-hint>
+            </mat-form-field>
+
+         <button *ngIf="formType === 'new'" 
+                    mat-raised-button color="accent"
+                     
+                    [disabled]="opgaveForm.invalid">
+                CREATE
+            </button>
+        </form>
+    </div>
+    </div>
+</div>
+<ng-template #createform>
+
+    <div class="opgave-content">
+
+        <form [formGroup]="opgaveForm" (submit)="createOpgave()">
+<!-- 
+            <div class="tags mb-24" fxFlexFill fxLayout="row wrap">
+                <div class="tag" fxLayout="row" fxLayoutAlign="start center" *ngFor="let tagId of opgave.tags">
+                    <div class="tag-color" [ngStyle]="{'background-color': tags | getById:tagId:'color'}"></div>
+                    <div class="tag-label">{{tags | getById:tagId:'title'}}</div>
+                </div>
+            </div>-->
+
+            <mat-form-field appearance="outline" class="title mt-8 p-0" fxFill>
+                <mat-label>Title</mat-label>
+                <textarea matInput
+                          #titleInput
+                          name="title"
+                          formControlName="title"
+                          required>
+                </textarea>
+            </mat-form-field> 
+
+            <div class="dates" fxFlexFill fxLayout="column" fxLayout.gt-xs="row">
+
+                <mat-form-field appearance="outline" class="ml-sm-12" >
+                    <mat-label>Start tidspunkt</mat-label>
+                    <input matInput  
+                    name="start" formControlName="start"
+                    [ngxMatDatetimePicker]="startDatePicker" placeholder="Choose a date"
+                   >
+                    <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+                    <ngx-mat-datetime-picker #startDatePicker 
+                    [showSpinners]="showSpinners" 
+                    [showSeconds]="showSeconds"
+                       [stepHour]="stepHour" [stepMinute]="stepMinute" [stepSecond]="stepSecond"
+                       [touchUi]="touchUi" [color]="color" [enableMeridian]="enableMeridian" 
+                       [disableMinute]="disableMinute" [hideTime]="hideTime">
+                    </ngx-mat-datetime-picker>
+                 </mat-form-field>
+
+
+             <mat-form-field appearance="outline"  class="ml-sm-12">
+                    <mat-label>Slut tidspunkt</mat-label>
+                    <input matInput 
+                    name="end" formControlName="end"
+                    [ngxMatDatetimePicker]="endDatePicker" placeholder="Choose a date"
+                  >
+                    <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+                  
+                    <ngx-mat-datetime-picker #endDatePicker 
+                    [showSpinners]="showSpinners" 
+                    [showSeconds]="showSeconds"
+                       [stepHour]="stepHour" [stepMinute]="stepMinute" [stepSecond]="stepSecond"
+                       [touchUi]="touchUi" [color]="primary" [enableMeridian]="enableMeridian" 
+                       [disableMinute]="disableMinute" [hideTime]="hideTime">
+                    </ngx-mat-datetime-picker>
+                 </mat-form-field>
+ 
+            </div>
+
+ 
+            <div class="booleans" fxFlexFill fxLayout="column" fxLayout.gt-xs="row">
+            <mat-slide-toggle name="completed" formControlName="completed" class="mr-24" aria-label="Task completed">
+                Opgave fuldført
+            </mat-slide-toggle>
+
+                <mat-slide-toggle name="important" formControlName="important" class="mr-24" aria-label="Task important">
+                    Opgave er vigtig
+                </mat-slide-toggle>
+
+                <mat-slide-toggle name="starred" formControlName="starred" class="mr-24" aria-label="Task starred">
+                    Opgave til opfølgning
+                </mat-slide-toggle>
+    
+        </div>
+
+            <mat-form-field appearance="outline" fxFill class="p-0">
+                <mat-label>Notes</mat-label>
+                <textarea matInput #notes
+                          name="notes"
+                          formControlName="notes"
+                          maxlength="500">
+                </textarea>
+                <mat-hint align="end">{{notes.value.length}} / 500</mat-hint>
+            </mat-form-field>
+
+         <button *ngIf="formType === 'new'" 
+                    mat-raised-button color="accent"
+                     
+                    [disabled]="opgaveForm.invalid">
+                CREATE
+            </button>
+        </form>
+
+    </div>
+
+</ng-template>
+</div>

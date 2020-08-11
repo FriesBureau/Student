@@ -1,0 +1,310 @@
+{
+    "id": 1,
+    "name": "Ord - Vokaler",
+    "description": "Ord - Beskrivelse",
+    "questions": [
+        {
+            "id": 1010,
+            "name": "Lyt og udtal vokalen: i",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "sige",
+                    "answer": "sige",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1011,
+            "name": "Lyt og udtal vokalen: e",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "se",
+                    "answer": "se",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },   {
+            "id": 1012,
+            "name": "Lyt og udtal vokalen: æ",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "æble",
+                    "answer": "æble",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1013,
+            "name": "Lyt og udtal vokalen: a [a:]",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "abe",
+                    "answer": "abe",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1014,
+            "name": "Lyt og udtal vokalen: a [a]",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "tæer",
+                    "answer": "tæer",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+           {
+            "id": 1015,
+            "name": "Lyt og udtal vokalen: a [ɑ]",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "gammel",
+                    "answer": "gammel",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1016,
+            "name": "Lyt og udtal vokalen: y [y]",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "enogtyve",
+                    "answer": "21",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1017,
+            "name": "Lyt og udtal vokalen: ø [ø]",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "en sø",
+                    "answer": "en sø",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1018,
+            "name": "Lyt og udtal vokalen: ø [ö]",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "kønne",
+                    "answer": "kønne",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1019,
+            "name": "Lyt og udtal vokalen: ø [ɶ̜̝̈]",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "tør",
+                    "answer": "tør",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1020,
+            "name": "Lyt og udtal vokalen: e [ə]",
+            "questionTypeId": 1, 
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "næste",
+                    "answer": "næste",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1020,
+            "name": "Lyt og udtal vokalen: u [u]",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "suge",
+                    "answer": "suge",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1021,
+            "name": "Lyt og udtal vokalen: o [o]",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "so",
+                    "answer": "so",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1022,
+            "name": "Lyt og udtal vokalen: å [å]",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "å, må",
+                    "answer": "å må",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1023,
+            "name": "Lyt og udtal vokalen: å [ɑ̹̽]",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "tår",
+                    "answer": "tår",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1024,
+            "name": "Lyt og udtal vokalen: å [ɔ]",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "Tom",
+                    "answer": "Tom",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        }
+    ]
+}

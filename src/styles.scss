@@ -1,1 +1,139 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import 'styles-variables';
+
+
+@import 'styles-reset';
+
+@import '~@angular/material/theming';
+
+@import "../node_modules/angular-calendar/css/angular-calendar.css";
+
+
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+ 
+
+@include mat-core();
+
+@import './themes/fb-student-theme';
+
+@import 'styles-reset.scss-theme';
+@import './app/app/app.component.scss-theme.scss';
+
+
+@mixin custom-components-theme($theme) {
+  @include anms-styles-reset-theme($theme);
+  @include anms-app-component-theme($theme);
+}
+
+ 
+.fb-theme {
+  @include angular-material-theme($anms-fb-student-theme);
+  @include custom-components-theme($anms-fb-student-theme);
+}
+
+
+
+body{
+  margin:0;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Muli, "Helvetica Neue", sans-serif; }
+
+.mat-card, .mat-form-field, .mat-button, .mat-fab, .mat-flat-button, .mat-icon-button, .mat-mini-fab, .mat-raised-button, .mat-stroked-button, .mat-caption, .mat-small {
+  font-family: Muli,"Helvetica Neue",sans-serif;
+}
+.mat-form-field {
+ 
+  padding-right: 2em;
+}
+
+.mat-mini-fab {
+  margin-bottom: 15px !important;
+}
+
+.score.mat-fab {
+  border-radius: 30px;
+    width: 100px;
+}
+
+.mat-card-header-text {
+  margin: 0 !important;
+  width: 100%;
+  flex-flow: column;
+  display: flex;
+}
+
+.mat-card-subtitle {
+  color: darkslategray !important;
+}
+.mat-card-header .mat-card-title  {
+display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    flex: 100% 1 1;
+    .badge-info {
+      flex: 40% 0 0;
+      font-size: 1rem !important;
+
+
+    }
+    .tid {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  .input-with-voice {
+    margin: 0px !important;
+  }
+
+
+  .mat-form-field-infix {
+    display: flex !important;
+    width: 300px;
+}
+
+.mat-card-actions {
+  display: flex !important;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  min-height: 120px;
+}
+
+.pagination-buttons {
+justify-content: flex-start;
+}
+
+.pagination-buttons button {
+margin: .5rem !important;
+}
+
+@media (max-width: 767px) {
+  .mat-toolbar.mat-primary {
+
+font-size:  1rem !important;
+  }
+
+  .mat-form-field, .mat-card-header .mat-card-title .badge-info {
+flex: 100% 0 0 !important;
+  }
+
+  .mat-form-field  {
+padding: 0 !important;
+  }
+#quiz  {
+  width: 100% !important;
+}}
+
+
+
+
+
+
+#languageoption {
+  font-size: 1rem;
+  }
+.mat-toolbar.mat-primary .mat-option-text {
+font-size: 1rem;
+}

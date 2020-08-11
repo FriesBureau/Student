@@ -1,0 +1,95 @@
+<div id="opgave" class="page-layout carded left-sidebar inner-scroll">
+
+    <!-- TOP BACKGROUND -->
+    <div class="top-bg accent"></div>
+    <!-- / TOP BACKGROUND -->
+
+    <!-- SIDEBAR -->
+         <opgave-sidebar class="sidebar"></opgave-sidebar>
+ 
+    <!-- / SIDEBAR -->
+
+    <!-- CENTER -->
+    <div class="center">
+
+        <!-- CONTENT HEADER -->
+        <div class="header" fxLayout="row" fxLayoutAlign="start center">
+
+            <div class="search-wrapper" fxFlex fxLayout="row" fxLayoutAlign="start center">
+
+                <button mat-icon-button class="sidebar-toggle" fxHide.gt-md
+                        (click)="toggleSidebar('opgave-sidebar')">
+                    <mat-icon>menu</mat-icon>
+                </button>
+
+                <div class="search" fxLayout="row" fxLayoutAlign="start center">
+                    <mat-icon class="secondary-text">search</mat-icon>
+                    <input [formControl]="searchInput" placeholder="Search for a task" fxFlex>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- / CONTENT HEADER -->
+
+        <!-- CONTENT CARD -->
+        <div class="content-card" [ngClass]="{'current-opgave-selected':currentOpgave}">
+
+            <!-- CONTENT TOOLBAR -->
+            <div class="toolbar px-24 py-8">
+
+                <div class="opgave-selection" fxFlex="row" fxLayoutAlign="start center">
+                    <mat-checkbox (click)="toggleSelectAll()" [checked]="hasSelectedOpgaver"
+                                  [indeterminate]="isIndeterminate"></mat-checkbox>
+
+                    <button mat-icon-button [matMenuTriggerFor]="selectMenu">
+                        <mat-icon>arrow_drop_down</mat-icon>
+                    </button>
+                    <mat-menu #selectMenu="matMenu">
+                        <button mat-menu-item (click)="selectOpgaver()">All</button>
+                        <button mat-menu-item (click)="deselectOpgaver()">None</button>
+                        <button mat-menu-item (click)="selectOpgaver('read', true)">Read</button>
+                        <button mat-menu-item (click)="selectOpgaver('read', false)">Unread</button>
+                        <button mat-menu-item (click)="selectOpgaver('starred', true)">Starred</button>
+                        <button mat-menu-item (click)="selectOpgaver('starred', false)">Unstarred</button>
+                        <button mat-menu-item (click)="selectOpgaver('important', true)">Important</button>
+                        <button mat-menu-item (click)="selectOpgaver('important', false)">Unimportant</button>
+                    </mat-menu>
+
+                    <div class="toolbar-separator" *ngIf="hasSelectedOpgaver"></div>
+
+                    <button mat-icon-button [matMenuTriggerFor]="labelMenu" *ngIf="hasSelectedOpgaver">
+                        <mat-icon class="secondary-text">label</mat-icon>
+                    </button>
+            
+                    <mat-menu #labelMenu="matMenu">
+                        <button mat-menu-item *ngFor="let tag of tags" (click)="toggleTagOnSelectedOpgaver(tag.id)">
+                            {{tag.title}}
+                        </button>
+                    </mat-menu>
+                </div>  
+
+                <div *ngIf="currentOpgave" fxHide.gt-lg>
+                    
+                    <button mat-icon-button (click)="deselectCurrentOpgave()">
+                        <mat-icon class="secondary-text">arrow_back</mat-icon>
+                    </button>
+                </div>
+
+            </div>
+            <!-- / CONTENT TOOLBAR -->
+
+            <!-- CONTENT -->
+            <div class="content" fxFlexAlign="row">
+                <opgave-liste fxFlex></opgave-liste>
+                <opgave-detaljer fxFlex></opgave-detaljer>
+            </div>
+            <!-- / CONTENT -->
+
+        </div>
+        <!-- / CONTENT CARD -->
+
+    </div>
+    <!-- / CENTER -->
+
+</div>

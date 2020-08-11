@@ -1,0 +1,107 @@
+<!-- SIDEBAR HEADER -->
+<div class="header accent p-24" fxLayout="column" fxLayoutAlign="space-between">
+
+    <div class="toolbar" fxLayout="row" fxLayoutAlign="end center">
+
+        <p *ngIf="selected.extension === 'ics'"><button mat-button color="primary" (click)="playStream(selected.vis)"> <mat-icon>calendar</mat-icon></button> </p>
+
+        <p *ngIf="selected.extension === 'mp3'">
+ 
+<button mat-button color="primary" (click)="playStream(selected.vis)"> <mat-icon>play_circle_filled</mat-icon></button> 
+        </p>
+
+     <a class="downloaddocument" href="{{selected.vis}}"  download target="_blank" rel="noopener">
+
+        <button mat-icon-button  aria-label="Download" color="primary" matTooltip="Download">
+            <mat-icon>file_download</mat-icon>
+        </button>
+    </a>
+
+        <button mat-icon-button matTooltip="Delete" 
+        (click)="this.dokumenterservice.deleteDokument(selected.path, selected.dokumentid)">
+            <mat-icon>delete</mat-icon>
+
+        </button>
+
+      
+<!-- 
+        <button mat-icon-button aria-label="More" matTooltip="More">
+            <mat-icon>more_vert</mat-icon>
+        </button> 
+        -->
+    </div>
+
+  
+</div> 
+<!-- / SIDEBAR HEADER -->
+
+<!-- SIDEBAR CONTENT -->
+<div class="content p-24">
+
+    <div class="file-details" [@animate]="{value:'*',params:{delay:'200ms'}}">
+        <div>
+            <div class="title mb-8">{{selected.name}}</div>
+
+       
+
+            <div class="subtitle secondary-text">
+                <span>Edited</span>
+                <span>: {{selected.modified.seconds * 1000 | date:'short'  }}</span>
+            </div>
+        </div>
+
+        <div class="preview file-icon" fxLayout="row" fxLayoutAlign="center center">
+            <mat-icon class="type-icon s-48" [ngClass]="selected.extension"></mat-icon>
+        </div>
+ 
+     
+
+        <div class="title">Info</div>
+
+ 
+      
+           <h3>Type</h3>
+           <p>{{selected.extension}}</p>
+
+          <div *ngIf="selected.extension === 'mp3'">
+              Add to queue in audio player
+ <mat-slide-toggle [(ngModel)]="selected.addtoreader" color="primary" labelPosition="before"></mat-slide-toggle>
+
+
+</div>
+   
+          <div *ngIf="selected.extension === 'docx'">
+ <div class="offline-switch">
+<div id="dokumentslider">View in reader  <mat-icon color="accent">chrome_reader_mode</mat-icon></div>
+<mat-slide-toggle [(ngModel)]="selected.addtoreader" color="primary" labelPosition="before"></mat-slide-toggle>
+ </div> 
+          </div>
+
+          <div *ngIf="selected.extension === 'pdf'">
+            <div class="offline-switch">
+                <div id="dokumentslider">View in reader  <mat-icon color="accent">chrome_reader_mode</mat-icon></div>
+           <mat-slide-toggle [(ngModel)]="selected.addtoreader" color="primary" labelPosition="before"></mat-slide-toggle>
+            </div> 
+                     </div>
+
+
+                     <div *ngIf="selected.extension === 'txt'">
+                        <div class="offline-switch">
+                            <div id="dokumentslider">View in reader  <mat-icon color="accent">chrome_reader_mode</mat-icon></div>
+                       <mat-slide-toggle [(ngModel)]="selected.addtoreader" color="primary" labelPosition="before"></mat-slide-toggle>
+                        </div> 
+                                 </div>
+
+                                 <div *ngIf="selected.extension === 'html'">
+                                    <div class="offline-switch">
+                                        <p>View in reader</p>
+                                   <mat-slide-toggle [(ngModel)]="selected.addtoreader" color="primary" labelPosition="before"></mat-slide-toggle>
+                                    </div> 
+                                             </div>
+   
+          
+  
+    </div>
+
+</div>
+<!-- / SIDEBAR CONTENT -->

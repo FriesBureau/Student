@@ -1,0 +1,268 @@
+<div id="academy-courses" class="page-layout simple">
+
+    <!-- HEADER -->
+    <div class="header accent p-16 p-sm-24" fxLayout="column" fxLayoutAlign="center center">
+
+        <div class="hero-text">
+            <mat-icon class="hero-icon">school</mat-icon>
+            <h1>
+               WELCOME TO FB ACADEMY
+            </h1>
+            <h3>
+                Our courses will step you through the process of building a small application, or adding a new feature
+                to an existing application.
+            </h3>
+        </div>
+
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+
+    
+    <div class="content p-24">
+
+        <div fxLayout="column" fxLayoutAlign="center">
+<!-- 
+            <div class="filters" fxLayout="column" fxLayoutAlign="center center"
+                 fxLayout.gt-xs="row" fxLayoutAlign.gt-xs="space-between center">
+
+                <mat-form-field appearance="outline" floatLabel="always" class="course-search">
+                    <mat-label>Søg efter et kursus</mat-label>
+                    <input matInput placeholder="Indtast et søgeord..."
+                           [(ngModel)]="searchTerm"
+                           (input)="filterKurserByTerm()">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="category-selector">
+                    <mat-label>Kategori</mat-label>
+                    <mat-select [(ngModel)]="currentCategory"
+                                (selectionChange)="filterKurserByCategory()">
+                        <mat-option [value]="'all'">
+                            Alle
+                        </mat-option>
+                        <mat-option *ngFor="let category of categories" [value]="category.value">
+                            {{ category.label }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+            </div>
+ 
+            -->
+            
+            <div class="courses" *ngIf="auth.user$ | async as user; else login">
+
+         
+<div fxLayout="row wrap"   fxLayoutAlign="center"  *ngIf="user.emailVerified == true">
+                <div class="course" *ngFor="let kursus of filteredKurser" fxFlex="100" fxFlex.gt-xs="50"
+                     fxFlex.gt-sm="33" [ngClass]="kursus.category">
+
+                    <div *ngIf="user.brugerrolle == kursus.bruger" class="course-content" fxLayout="column" fxFlex="1 1 auto">
+
+                        <div class="header" fxLayout="row" fxLayoutAlign="center center"
+                             [ngClass]="kursus.slug + '-bg'">
+
+                            <div class="category" fxFlex>
+                                {{kursus.category}}
+                            </div>
+
+                            <div class="length" fxLayout="row" fxLayoutAlign="center center">
+                                <mat-icon class="length-icon s-20">access_time</mat-icon>
+                                <div class="min">{{kursus.length}} {{kursus.timeparameter}} </div>
+                            </div>
+
+                        </div>
+
+                        <div class="content" fxLayout="column" fxLayoutAlign="center center" fxFlex="1 1 auto">
+                            <div class="h1">{{kursus.title}}</div>
+                            <div class="updated">Opdateret {{kursus.updated}}</div>
+                            <div class="updated">ID {{kursus.id}}</div>
+                            <div class="updated">Url {{kursus.slug}}</div>
+                        </div>
+
+                        <div class="footer" fxLayout="row" fxLayoutAlign="center center">
+
+                     
+                            <button mat-button color="accent"
+                                    [routerLink]="'/akademi/kurser/' + kursus.id + '/' + kursus.slug">
+                                START 
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="no-courses" *ngIf="filteredKurser.length === 0">
+                  Ingen kurser er tilgængelige
+                </div>
+
+            </div>
+        </div>
+<div *ngIf="auth.user$ | async as user">
+        <div *ngIf="user.emailVerified === false;">
+         <h3>Confirm your e-mail address</h3>
+        <p>Please click on the e-mail confirmation link, sent to your e-mail address.</p>
+        <p>Afterwards, please confirm your login credentials:</p>
+
+
+<mat-form-field appearance="fill">
+    <mat-label>User Email</mat-label>
+    <input matInput type="text" placeholder="User Email" #userName required>
+    </mat-form-field>
+                  <!-- 
+                        <mat-form-field  appearance="outline">
+                          <input matInput type="password" class="formControl" placeholder="Password" #userPassword required>
+                        </mat-form-field>
+                        -->
+    
+                        <mat-form-field appearance="fill">
+                          <mat-label>Enter your password</mat-label>
+                          <input matInput [type]="hide ? 'password' : 'text'" [formControl]="passwordtjeklogind" #userPassword required>
+                          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                          </button>
+                        </mat-form-field>
+
+                
+                  
+                        <!-- Calling SignIn Api from AuthService -->
+                     <div>
+    <button mat-raised-button 
+     color="accent" class="button" (click)="auth.SignIn(userName.value, userPassword.value)">
+     Confirm <mat-icon>check</mat-icon> </button>
+        </div>
+    </div>
+</div>
+
+            <ng-template #login>
+              <mat-card id="brugerformularer">
+                <mat-card-content id="logindindhold">
+
+            
+                    <h3>Sign In</h3>
+ 
+<mat-form-field appearance="fill">
+<mat-label>User Email</mat-label>
+<input matInput type="text" placeholder="User Email" #userName required>
+</mat-form-field>
+              <!-- 
+                    <mat-form-field  appearance="outline">
+                      <input matInput type="password" class="formControl" placeholder="Password" #userPassword required>
+                    </mat-form-field>
+                    -->
+
+                    <mat-form-field appearance="fill">
+                      <mat-label>Enter your password</mat-label>
+                      <input matInput [type]="hide ? 'password' : 'text'" [formControl]="passwordtjeklogind" #userPassword required>
+                      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                      </button>
+                    </mat-form-field>
+              
+                    <!-- Calling SignIn Api from AuthService -->
+                 <div>
+<button mat-raised-button 
+ color="accent" class="button" (click)="auth.SignIn(userName.value, userPassword.value)">
+ <mat-icon>email</mat-icon> Log in with email</button>
+
+  <span id="glemtadgangskode" (click)="toggleShow()">Forgot Password?</span>
+  <div *ngIf="isShown">
+    <mat-form-field appearance="fill">
+      <mat-label>User Email</mat-label>
+      <input matInput type="text" placeholder="User Email" #forgotPassword required>
+      </mat-form-field>
+      <button mat-raised-button 
+ color="accent" class="button" (click)="auth.ForgotPassword(forgotPassword.value)">
+ <mat-icon>send</mat-icon> Send reactivation code</button>
+  </div>
+ </div>
+               
+           <!-- 
+                    <div class="logindmedgoogle">
+Denne skal sættes op igen. Tjek hvordan man laver Google Autentificering <button mat-raised-button class="loginBtn--google" (click)="auth.googleSignin()"> Login with Google </button>
+
+ 
+Virker ikke uden API eller Credentials i Google Cloud <button mat-raised-button class="loginBtn--google" (click)="auth.loginwithGoogleandCalendar()"> Login with GoogleCalendar </button>
+ 
+                    </div>-->
+
+                    
+              
+                
+                </mat-card-content>
+                <mat-card-content id="opretbrugerindhold">
+               
+                    <h3>Sign Up</h3>
+
+                    <form class="my-form" #signupForm=ngForm>
+
+                    <mat-form-field  appearance="fill">
+                      <mat-label>Type your full name</mat-label>
+<input matInput type="text" placeholder="Full Name" #fullName [formControl]="name" required>
+<mat-error *ngIf="name.invalid">{{getErrorMessageName()}}</mat-error>
+
+
+
+
+                    </mat-form-field>
+               
+              
+                    <mat-form-field  appearance="fill">
+                      <mat-label>Enter your email address</mat-label>
+<input matInput type="email" placeholder="Email Address" #userEmail [formControl]="email" required>
+<mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill">
+                      <mat-label>Enter your password</mat-label>
+                      <input matInput [type]="hide ? 'password' : 'text'" [formControl]="passwordtjekopret" #userPwd required>
+                      <button mat-icon-button matSuffix (click)="!hide = hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                      </button>
+                      <mat-error *ngIf="passwordtjekopret.invalid">{{getErrorMessagePassword()}}</mat-error>
+                    </mat-form-field>
+      
+                    
+
+                    <mat-form-field>
+                      <mat-label>Choose avatar</mat-label>
+                      <mat-select [formControl]="avatarControl" required>
+                          <mat-option id="chooseavatar" *ngFor="let avatar of avatarer" [value]="avatar">
+                        <img src="{{avatar.image}}" width="100" height="100"  />
+                        </mat-option>
+                      </mat-select>
+                      <img *ngIf="avatarControl.value?.image" src="{{avatarControl.value?.image}}" width="75" height="75" />
+                      <mat-error *ngIf="avatarControl.hasError('required')">Please choose an avatar</mat-error>
+                
+                    </mat-form-field>
+
+
+              
+<!--   <input  id="logindknap" color="accent" type="button" value="Sign Up" 
+(click)="auth.SignUp(userEmail.value, userPwd.value); this.auth.sendAvatar(avatarControl.value?.image)"> -->
+               
+ 
+<button id="opretbrugerknap" type="submit" color="accent"  mat-raised-button
+(click)="auth.SignUp(userEmail.value, userPwd.value, fullName.value, avatarControl.value?.image);" 
+class="button" [disabled]="!signupForm"> <mat-icon class="secondary-text">person</mat-icon>  Create user </button>
+ 
+</form>
+</mat-card-content>
+
+                  </mat-card>
+             </ng-template> 
+
+       
+
+        </div>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>
+ 
+
+              
+  

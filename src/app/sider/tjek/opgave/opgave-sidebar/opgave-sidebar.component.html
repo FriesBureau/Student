@@ -1,0 +1,117 @@
+<!-- SIDEBAR HEADER -->
+<div fxLayout="column"
+     class="header accent p-18 pb-4"> 
+    <div class="logo" fxFlex fxLayout="row" fxLayoutAlign="start center">
+        <mat-icon class="logo-icon s-32" [@animate]="{value:'*',params:{delay:'50ms',scale:'0.2'}}">
+       assignment_turned_in
+        </mat-icon>
+    <span class="logo-text" [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">Opgave</span>
+
+       
+    </div> 
+<!-- 
+    <div class="account" fxLayout="column" [@animate]="{value:'*',params:{delay:'300ms'}}">
+        <div class="title">John Doe</div>
+        <mat-form-field floatLabel="never">
+            <mat-select class="account-selection" placeholder="Opgave Selection"
+                        [ngModel]="selectedAccount">
+           <mat-option *ngFor="let account of (accounts | keyvalue: unsorted)" [value]="account.key"> 
+               -->
+             <!--       <mat-option *ngFor="let account of accounts" [value]="account">   
+                {{account.value}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+</div>  -->  
+<!-- / SIDEBAR HEADER -->
+
+<button mat-raised-button fxHide.lt-md
+class="mat-accent add-opgave-button w-100-p mat-fab"
+(click)="newOpgave()"
+aria-label="ADD TASK">
+<mat-icon class="nav-link-icon">add</mat-icon> 
+</button>
+</div>
+
+<!-- SIDEBAR CONTENT -->
+<!-- 
+<div class="content" fusePerfectScrollbar [@animate]="{value:'*',params:{y:'50px'}}">
+-->
+    <div class="content">
+
+ 
+
+    <div id="filtermenu" class="nav material2">
+
+       
+<div id="opgavemenu">
+        <div class="nav-subheader" fxHide.lt-md>FILTERS</div>
+
+        <div class="nav-item" fxHide.gt-md>
+<button mat-icon-button (click)="newOpgave()"  matRipple class="mat-accent nav-link"> 
+     <mat-icon class="secondary-text">add</mat-icon>   </button>
+        </div>
+
+         <div class="nav-item" fxHide.lt-md>
+            <a class="nav-link" matRipple [routerLink]="'/opgave/all'"
+               [routerLinkActive]="['active', 'accent']">
+                <mat-icon class="nav-link-icon">view_headline</mat-icon>
+                <span >All</span>
+            </a>
+        </div>
+
+        <div class="nav-item" *ngFor="let filter of filters" fxHide.lt-md>
+            <a class="nav-link" matRipple [routerLink]="'/opgave/filter/' + filter.handle"
+               [routerLinkActive]="['active', 'accent']">
+                <mat-icon class="nav-link-icon" *ngIf="filter.icon">{{filter.icon}}</mat-icon>
+                <span >{{filter.title}}</span>
+            </a>
+        </div>
+    </div>
+
+    <button mat-icon-button [matMenuTriggerFor]="filterMenu" fxHide.gt-md> 
+        <!--     <button mat-icon-button [matMenuTriggerFor]="labelMenu" *ngIf="hasSelectedOpgaver"> -->
+                  <mat-icon class="secondary-text">dynamic_feed</mat-icon>
+
+            </button>
+            <mat-menu #filterMenu="matMenu" xHide.gt-md>
+
+                <button mat-menu-item  [routerLink]="'/opgave/all'"
+                [routerLinkActive]="['active', 'accent']">
+                <mat-icon class="nav-link-icon">done_all</mat-icon>
+                 <span >All</span>
+            </button>
+
+                <button mat-menu-item *ngFor="let filter of filters" [routerLink]="'/opgave/filter/' + filter.handle">
+                    <mat-icon class="nav-link-icon" *ngIf="filter.icon">{{filter.icon}}</mat-icon>
+                       <span>{{filter.title}}</span>
+                </button>
+            </mat-menu>
+
+<!--  
+        <div class="nav-subheader" fxHide.lt-md>TAGS</div>
+<div id="tagsmenu">
+        <div class="nav-item" *ngFor="let tag of tags" fxHide.lt-md>
+            <a class="nav-link" matRipple [routerLink]="'/opgave/tag/' + tag.handle"
+               [routerLinkActive]="['active', 'accent']">
+                <mat-icon class="nav-link-icon" [ngStyle]="{'color':tag.color}">label</mat-icon>
+                <span f>{{tag.title}}</span>
+            </a> 
+        </div>
+        <button mat-icon-button [matMenuTriggerFor]="labelMenu" fxHide.gt-md> 
+   <button mat-icon-button [matMenuTriggerFor]="labelMenu" *ngIf="hasSelectedOpgaver">  
+                    <mat-icon class="secondary-text">label_important</mat-icon>
+                </button>
+                <mat-menu #labelMenu="matMenu" xHide.gt-md>
+                    <button mat-menu-item *ngFor="let tag of tags" [routerLink]="'/opgave/tag/' + tag.handle">
+                        {{tag.title}}
+                    </button>
+                </mat-menu>
+
+    </div> -->
+    </div>
+
+</div>
+<!-- / SIDEBAR CONTENT -->

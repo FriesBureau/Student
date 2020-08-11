@@ -1,0 +1,386 @@
+{
+    "id": 1,
+    "name": "Ord - Konsonanter",
+    "description": "Ord - Beskrivelse",
+    "questions": [
+        {
+            "id": 1010,
+            "name": "Lyt og udtal ordene: bus, arbejde, job [d]",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "bus, arbejde, job",
+                    "answer": "bus arbejde job",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1011,
+            "name": "Lyt og udtal ordene: håndbold, arbejde, du [d]",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "håndbold, arbejde, du",
+                    "answer": "håndbold arbejde du",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },   {
+            "id": 1012,
+            "name": "Lyt og udtal ordene: gift, far, kaffe [f]",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "Far, gift, kaffe",
+                    "answer": "far gift kaffe",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1013,
+            "name": "Lyt og udtal ordene: ligger, god, æg [g]",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "ligger, god, æg",
+                    "answer": "ligger god æg",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1014,
+            "name": "Lyt og udtal ordene: hun, har, Aarhus [h]",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "Hun har Aarhus",
+                    "answer": "Hun har Aarhus",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+           {
+            "id": 1015,
+            "name": "Lyt og udtal ordene: ja, nej, øje [j]",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "Ja, Nej, øje",
+                    "answer": "Ja Nej øje",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1016,
+            "name": "Lyt og udtal ordene: kommer, okay [m]",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "kommer, okay",
+                    "answer": "kommer okay",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1017,
+            "name": "Lyt og udtal ordene: mand, hjemme [m]",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "mand, hjemme",
+                    "answer": "mand hjemme",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1018,
+            "name": "Lyt og udtal ordene: papir, på, pige [p]",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "papir, på, pige",
+                    "answer": "papir på pige",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1019,
+            "name": "Lyt og udtal ordene: danse, se, pas [s]",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "danse, se, pas",
+                    "answer": "danse se pas",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1020,
+            "name": "Lyt og udtal ordene: sjov, station, chokolade [ʂ]",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "sjov, station, chokolade",
+                    "answer": "sjov station chokolade",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1020,
+            "name": "Lyt og udtal ordene: tak, telefon, politi [t]",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "tak, telefon, politi",
+                    "answer": "tak telefon politi",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1021,
+            "name": "Lyt og udtal sætningen: Jeg vil sove klokken 11 [v]",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "Jeg vil sove klokken 11",
+                    "answer": "Jeg vil sove klokken 11",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1022,
+            "name": "Lyt og udtal sætningen: ramme, radio [r]",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "ramme, radio",
+                    "answer": "ramme radio",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1023,
+            "name": "Lyt og udtal sætningen: nej, vane, horn [n]",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "Nej, vane, torn",
+                    "answer": "Nej vane torn",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1024,
+            "name": "Lyt og udtal sætningen: bringe, penge, sang [ng]",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "bringe, penge, sang",
+                    "answer": "bringe penge sang",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1025,
+            "name": "Lyt og udtal sætningen: jul, tale, Jylland [l]",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "jul, tale, Jylland",
+                    "answer": "jul tale Jylland",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1026,
+            "name": "Lyt og udtal ordet: mad [ð]",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "mad",
+                    "answer": "mad",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1027,
+            "name": "Lyt og udtal ordet: gade [ð]",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "gade",
+                    "answer": "gade",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        },
+        {
+            "id": 1028,
+            "name": "Lyt og udtal ordet: lavet [ð]",
+            "questionTypeId": 1,
+            "options": [
+                {
+                    "id": 1055,
+                    "questionId": 1010,
+                    "name": "lavet",
+                    "answer": "lavet",
+                    "isAnswer": true
+                }
+            ],
+            "questionType": {
+                "id": 1,
+                "name": "Udtale",
+                "isActive": true
+            }
+        }
+    ]
+}

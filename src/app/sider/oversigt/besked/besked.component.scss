@@ -1,0 +1,129 @@
+// @import "src/@fuse/scss/fuse";
+
+@import '../../../../styles-variables';
+
+
+app-besked {
+    width: 100%;
+#besked {
+width: 100%;
+min-width: 100%;
+display: flex;
+-webkit-box-flex: 1;
+flex: 1 1 auto;
+-webkit-box-orient: horizontal;
+-webkit-box-direction: normal;
+flex-direction: row;
+position: relative;
+overflow: hidden;
+}
+    
+.center {
+    width: 100%;
+
+    .header {
+
+        background: #375e5e;
+        color: white;
+
+            .search-wrapper {
+        
+                overflow: hidden;
+    
+
+                .sidebar-toggle {
+                    margin: 0 0 0 6px;
+                    width: 56px;
+                    height: 56px;
+                    border-radius: 0;
+                    border-right: 1px solid;
+                }
+
+                .search {
+                    width: 100%;
+                    height: 56px;
+                    line-height: 56px;
+                    padding: 0 18px;
+                    color: white;
+
+                    input {
+                        height: 56px;
+                        min-height: 56px;
+                        max-height: 56px;
+                        padding: 0 16px;
+                        border: none;
+                        outline: none;
+                        background: transparent;
+                        color: white;
+                    }
+                }
+            }
+        }
+
+        .content-card {
+            background: white;
+            margin: 2rem;
+
+            .toolbar {
+                display: -webkit-box;
+display: flex;
+-webkit-box-pack: start;
+justify-content: flex-start;
+-webkit-box-align: center;
+align-items: center;
+-webkit-box-flex: 1;
+flex: 1 1 auto;
+border-bottom: 1px solid;
+    border-bottom-color: currentcolor;
+height: 64px;
+min-height: 64px;
+max-height: 64px;
+
+                .toolbar-separator {
+                    height: 32px;
+                    width: 1px;
+                    margin: 0 12px;
+                }
+            }
+
+            @include media-breakpoint(xs) {
+
+                besked-liste {
+                    border-right: none;
+                }
+
+                besked-liste,
+                besked-detaljer {
+                    flex: 1 0 100%;
+                }
+
+                besked-detaljer {
+                    display: none !important;
+                }
+
+                &.current-mail-selected {
+
+                    .toolbar {
+                        padding-left: 16px !important;
+
+                        .mail-selection {
+                            display: none !important;
+                        }
+                    }
+
+                    .content {
+
+                        mail-ngrx-list {
+                            display: none !important;
+                        }
+
+                        mail-ngrx-details {
+                            display: flex !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

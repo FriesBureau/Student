@@ -1,0 +1,9 @@
+<mat-list class="playliste" color="primary">
+  <mat-list-item id="radio-liste-punkt" *ngFor="let radio of radiokanaler; let i = index" (click)="openRadioChannel(radio, i)">
+    <mat-icon color="primary" mat-list-icon>radio</mat-icon>
+    <h4 mat-line>{{ radio.name }}</h4>
+    <h5 mat-line>i {{ radio.artist }}</h5>
+
+    <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-list>

@@ -1,0 +1,95 @@
+ 
+ 
+
+ 
+  
+ 
+ 
+
+
+   
+
+   
+  
+
+
+    <div class="media-footer" *ngIf="auth.user$ | async as user;">
+     
+ 
+            <mat-toolbar>
+      
+  
+              <mat-toolbar-row class="media-action-bar">
+
+       
+            
+              <mat-form-field *ngIf="user.brugerrolle === 'danskhold1'" id="lessonaudio" >
+                <mat-label class="text-truncate">  Select lesson and Audio </mat-label>
+                <mat-select>
+                  <mat-option (onSelectionChange)="change($event)" *ngFor="let audio of audio" [value]="audio.value">
+                   {{audio.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+                <div id="playerpanel">
+                <button mat-button [disabled]="isFirstPlaying()" (click)="previous()">
+                  <mat-icon mat-list-icon>skip_previous</mat-icon>
+                </button>
+        
+                <button mat-button (click)="play()" [disabled]="state?.error" *ngIf="!state?.playing">
+                  <mat-icon mat-list-icon>play_circle_filled</mat-icon>
+                </button>
+        
+                <button mat-button (click)="pause()" *ngIf="state?.playing">
+                  <mat-icon mat-list-icon>pause</mat-icon>
+                </button>
+        
+                <button  mat-button [disabled]="isLastPlaying()" (click)="next()">
+                  <mat-icon mat-list-icon>skip_next</mat-icon>
+                </button>
+
+
+      
+                {{ state?.readableCurrentTime }}
+                <mat-slider class="time-slider" min="0" [max]="state?.duration" step="1" [value]="state?.currentTime" (input)="onSliderChangeEnd($event)" [disabled]="state?.error || currentFile.index === undefined"></mat-slider>
+               <span *ngIf="!state?.readableDuration === 'Invalid Date'"> {{ state?.readableDuration }}</span>
+              </div>
+              <div id="playerfunctions">
+               <mat-icon id="radiobutton" color="primary" (click)="openBottomRadioSheet()">radio</mat-icon>
+<!--  <img id="audiobutton" width="24" height="24" (click)="openBottomLydSheet()" src="../../../assets/icons/podcast.svg" />-->
+
+<mat-icon id="audiobutton" color="primary" (click)="openBottomLessonAudioSheet()">queue_music</mat-icon>
+      </div>
+       <div id="playervolume">
+
+        <mat-icon  *ngIf="isSliderShown" color="primary" (click)="toggleSliderHide()">close</mat-icon>
+       <mat-slider 
+       min="0" max="1" step="0.1" value="0.5"
+       (input)="onSliderChangeVolume($event)" color="primary" vertical *ngIf="isSliderShown">
+       
+    
+       
+       </mat-slider>       <mat-icon id="toggleVolume" color="primary" (click)="toggleSliderShow()">volume_up</mat-icon>
+   
+      </div>
+
+              </mat-toolbar-row>
+            <mat-toolbar-row *ngIf="isShown">
+            <mat-list class="playliste" color="primary">
+              <mat-icon (click)="toggleHide()">arrow_drop_up</mat-icon>  
+                <mat-list-item *ngFor="let file of lydfiler; let i = index" (click)="openFile(file, i)">
+                  <mat-icon class="file-playing" *ngIf="currentFile.index === i">play_circle_outline</mat-icon>
+                  <mat-icon color="primary" mat-list-icon>music_note</mat-icon>
+                 
+                  <h4 mat-line>{{ file.name }}</h4>
+                  <h5 mat-line>i {{ file.artist }}</h5>
+                  <h6 *ngIf="currentFile.index === i && state?.error">FEJL</h6>
+                  <mat-divider></mat-divider>
+                </mat-list-item>
+              </mat-list>
+            </mat-toolbar-row>
+            </mat-toolbar>   
+    </div>
+
+  

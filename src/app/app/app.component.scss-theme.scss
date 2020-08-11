@@ -1,0 +1,160 @@
+@import '~@angular/material/theming';
+
+@mixin anms-app-component-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $third: map-get($theme, third);
+  $warn: map-get($theme, warn);
+
+  mat-sidenav-container {
+    mat-toolbar {
+      button {
+        &.active {
+    //      color: mat-color($accent, default-contrast);
+    //      background-color: mat-color($accent);
+        }
+      }
+
+      .link {
+        color: mat-color($primary, default-contrast);
+      }
+    }
+
+
+  
+    app-root {
+      height: 100%;
+    }
+
+    mat-sidenav {
+      height:  100%;
+      .mat-list-item {
+        &.active {
+          color: mat-color($accent, default-contrast);
+          background-color: mat-color($accent) !important;
+          opacity: .3;
+
+          &:hover {
+            background-color: mat-color($accent, darker) !important;
+          }
+        }
+      }
+    }
+
+    .footer {
+    //  color: mat-color($primary, lighter);
+    color: beige;
+     background-color: mat-color($accent, darker);
+     min-height: 75px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ 
+
+
+      .links,
+      .signature {
+        a {
+        //  color: mat-color($primary, lighter);
+        color: beige;
+          &:hover {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+
+  .error-notification-overlay {
+    color: mat-color($warn, default-contrast);
+    background-color: mat-color($warn);
+  }
+
+  .info-notification-overlay {
+    color: mat-color($accent, default-contrast);
+    background-color: mat-color($accent);
+  }
+
+  .success-notification-overlay {
+    color: mat-color($success-colors, default-contrast);
+    background-color: mat-color($success-colors);
+  }
+
+  .warning-notification-overlay {
+    color: mat-color($warning-colors, default-contrast);
+    background-color: mat-color($warning-colors);
+  }
+}
+
+.media-footer {
+  height: auto;
+  background: mat-color($third, darker);
+  color: #a62a2a;
+  width: 100%;
+  .mat-toolbar  {
+    position: fixed;
+    bottom:0;
+    width: auto;
+    box-shadow: 0px 4px 5px -2px rgba(0, 0, 0, 0.2), 0px 7px 10px 1px rgba(0, 0, 0, 0.14), 0px 2px 16px 1px rgba(0, 0, 0, 0.12);
+    z-index: 9999;
+    max-width: calc(100% - 200px);
+
+  }
+
+  .mat-flat-button.mat-accent, .mat-raised-button.mat-accent, .mat-fab.mat-accent, .mat-mini-fab.mat-accent {
+
+    height: 40px;
+}
+
+.mat-flat-button.mat-primary, .mat-raised-button.mat-primary, .mat-fab.mat-primary, .mat-mini-fab.mat-primary {
+
+  height: 40px;
+}
+
+  .mat-toolbar {
+    height: auto;
+    background: beige;
+    color: #a62a2a;
+    border-top-left-radius: 10px;
+    margin-left: auto;
+    right: 0;
+      }
+
+  .time-slider {
+
+    margin-left:20px;
+    margin-right:20px;
+  }
+  .media-action-bar {
+    padding: 0 1rem;
+    justify-content: center;
+    display: flex;
+  
+    height: auto;
+    width: auto;
+    min-height: 64px;
+max-width: 100%;
+    align-items: center;
+    justify-items: start;
+    justify-content: start;
+ 
+
+    @media (max-width: 991px) {
+      .media-action-bar {
+        min-width: auto !important;  flex-wrap: wrap;
+
+      }
+    }
+
+     .mat-icon{
+  
+    }
+  }
+}
+
+#brugerfelt {
+  cursor: pointer;
+  .mat-list-base .mat-list-item .mat-list-item-content {
+    flex-wrap: nowrap !important;
+  }
+}

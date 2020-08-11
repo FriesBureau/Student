@@ -1,0 +1,174 @@
+ 
+
+    
+    
+    <!-- 
+      <div *ngFor="let test of questionstest">
+        <div style="display: block; width: 100%;">
+          {{ test.payload.doc.data().questions }}</div>
+        </div> 
+        <p>Test med index</p>
+ 
+        <ul id="slice" *ngFor="let test of questionstest | slice:0:1; index as i">
+          <li> {{ test.payload.doc.data().titel }}</li>
+          <li> {{i+1}} {{ test.payload.doc.data().svar }}</li>
+      </ul>
+
+      <p>Test med index 0:2</p>
+ 
+      <ul id="slice" *ngFor="let test of questionstest | slice:0:2; index as i">
+        <li> {{ test.payload.doc.data().titel }}</li>
+        <li> {{i+1}} {{ test.payload.doc.data().svar }}</li>
+    </ul>
+
+      <p>Simpel test uden index</p>
+
+      <ul id="slice" *ngFor="let test of questionstest">
+        <li> {{ test.payload.doc.data().titel }}</li>
+        <li> {{i+1}} {{ test.payload.doc.data().svar }}</li>
+    </ul>
+
+ <p>Ny test - Virker også</p>
+      <ul id="slice">
+    
+      <li *ngFor="let test of questionstest | paginate:{itemsPerPage: 2, currentPage:p}">{{ test.payload.doc.data().svar }}</li>
+ 
+</ul>  -->
+<app-questions></app-questions>
+    
+
+ 
+    <div class="quiz" *ngIf="mode=='quiz' && quiz">
+  
+         
+
+<mat-card fxFlex class="mat-elevation-z12" fxFlex.lt-sm="100%" fxFlex.gt-sm="100%" *ngFor="let question of filteredQuestions;">
+
+  <mat-card-header>
+    <mat-card-title>   
+      <div class="badge badge-info"><h5>Spørgsmål {{pager.index + 1}} af {{pager.count}}.</h5></div>
+     
+    <mat-form-field style="flex: 20% 0 0;">
+      <mat-select [(ngModel)]="quizName" (selectionChange)="loadQuiz(quizName)">
+          <mat-option *ngFor="let quiz of quizes" [value]="quiz.id">{{ quiz.name }}</mat-option>
+        </mat-select>
+        </mat-form-field>
+
+      
+
+  
+        <span style="margin-left:auto;"><button mat-fab color="accent" class="score">Point: {{ scores[0] }}</button></span>
+      
+      <!--         <div *ngIf="config.duration" class="badge badge-info tid">
+        <h5>Tid: {{ellapsedTime}} / {{duration}}</h5></div>-->
+
+   
+      
+      
+
+    </mat-card-title>
+
+  </mat-card-header>
+   
+    <h4 class="font-weight-normal">{{pager.index + 1}}.
+      <span [innerHTML]="question.name"></span> 
+    </h4>       
+   
+    <mat-card-subtitle>Klik på lyden for at lytte, og på mikrofonen for at indtale din besked</mat-card-subtitle>
+
+  <mat-card-content [formGroup]="talkForm" fxLayout="column nowrap">
+
+
+      <div style="width: 100%; margin: auto;" id="svarmuligheder" *ngFor="let option of question.options">
+       <!-- 
+        <label for="rate">Rate</label><input type="range" min="0.5" max="2" value="1" step="0.1" id="rate">
+        <div class="rate-value">1</div>-->
+        <mat-form-field style="width: 100%;">
+          <input matInput id="spoergsmaal" placeholder value="{{option.answer}}">
+
+          <input style="display: none;" matInput id="udtale" placeholder value="{{option.name}}">
+
+        
+          <button mat-mini-fab (click)="lyd()">
+              <mat-icon matSuffix>hearing</mat-icon>
+            </button>
+          </mat-form-field>
+      
+
+
+    <mat-radio-group fxLayout="row wrap" fxLayoutAlign="space-around center" formControlName="selectedLanguage">
+    <!--   <mat-radio-button name="langRadio" value="pt-BR" class="radio-lang">Português</mat-radio-button>
+      <mat-radio-button name="langRadio" value="en-US" class="radio-lang">English</mat-radio-button>-->
+      <mat-radio-button style="display: none;" name="langRadio" value="da-DK">Dansk</mat-radio-button>
+    </mat-radio-group>
+
+
+    <div fxLayout="row wrap" fxLayoutAlign="space-around center" class="input-with-voice">
+
+
+      
+      <mat-form-field   appearance="outline">
+     <!--    <mat-label>Indtal: </mat-label>-->
+        <textarea id="{{reasonFieldName}}"  formControlName="reason" matInput placeholder="Indtal din besked"></textarea>
+        <mat-icon matSuffix>receipt</mat-icon>
+        <!-- <mat-hint>Indtal besked</mat-hint> -->
+      </mat-form-field>
+
+
+
+      <button mat-mini-fab (click)="toggleListening(reasonFieldName)" color="{{ListeningReason?'accent':'primary'}}" *ngIf="speech.SupportRecognition">
+        <mat-icon matSuffix>microphone</mat-icon>
+      </button>
+    </div>
+  </div>
+
+<!-- 
+    <div fxLayout="row nowrap" fxLayoutAlign="space-around center" class="input-with-voice">
+
+
+      
+      <mat-form-field fxFlexFill appearance="outline">
+        <mat-label>Besked</mat-label>
+  <input inputmode="numeric" id="{{amountFieldName}}" formControlName="amount" type="number" matInput placeholder="Full amount" class="only-numbers" >
+<textarea id="{{amountFieldName}}" formControlName="amount" matInput placeholder="Indtal nu !"></textarea>
+<mat-icon matSuffix>receipt</mat-icon>
+        <mat-hint>Indtal besked</mat-hint>
+      </mat-form-field>
+
+      <button mat-mini-fab (click)="toggleListening(amountFieldName)" color="{{ListeningAmount?'accent':'primary'}}" *ngIf="speech.SupportRecognition">
+        <mat-icon matSuffix>microphone</mat-icon>
+      </button>
+    </div>
+  -->
+
+
+
+  </mat-card-content>
+
+  <mat-card-actions>
+    <div class="pagination">
+    <button mat-raised-button *ngIf="config.allowBack" (click)="goTo(0);">Første</button>
+    <button mat-raised-button  *ngIf="config.allowBack" (click)="goTo(pager.index - 1);">Forrige</button>
+ <button mat-raised-button  (click)="goTo(pager.index + 1);">Næste</button>
+ <button mat-raised-button  *ngIf="config.allowBack" (click)="goTo(pager.count - 1);">Sidste</button> 
+</div>
+<div style="justify-content: flex-end;">
+    <button color="accent" mat-button (click)="clearCard()">Nulstil</button>
+    <button [disabled]="talkForm.invalid" color="warn" mat-raised-button (click)="tjekSvar()">Gem resultat</button>
+</div></mat-card-actions>
+
+
+  <mat-card-footer class="footer-holder">
+
+
+<div class="text-center">
+ 
+<!--  <pagination *ngIf="config.showPager" direction-links="false" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged()"></pagination>-->
+  </div>
+
+  
+    
+  </mat-card-footer>
+</mat-card>
+
+</div> 

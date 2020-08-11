@@ -1,0 +1,212 @@
+
+
+    <mat-sidenav-container autosize>
+  
+<mat-sidenav class="venstremenu" opened="true" #sidenav position="fixed" 
+[mode]="isLargeScreen() ? 'side' : 'over'"
+
+ [@onSideNavChange]="sideNavState ? 'open' : 'close'">
+           
+     <div fxLayout="column" fxLayoutGap="10px" style="height: 100%;">
+       <!-- 
+     <div *ngIf="showFiller">
+       <app-bruger></app-bruger></div>
+     -->
+     
+               <div class="user_menu">
+     
+           <mat-nav-list id="navigationsliste" *ngIf="auth.user$ | async as user;"> 
+
+      
+                   <a id="brugerfelt" routerLink="bruger">
+                    <span> 
+                      
+                      <h5>{{ user.displayName }}</h5> </span>
+                     <img class="billedramme" [src]="user.photoURL">
+                   
+                   </a>
+               
+                 <mat-divider></mat-divider>
+
+             
+             
+                   <!-- 
+                   <a mat-list-item *ngFor="let page of pages">
+                     <mat-icon (click)="onSidenavToggle()" style="padding-right:5px;">{{page?.icon}}</mat-icon>
+                     <span [@animateText]="linkText ? 'show' : 'hide'">{{ page?.name }} </span>
+                   </a>-->
+         
+       <!--    <a mat-list-item *ngFor="let item of navigation" (click)="sidenav.close()" [routerLink]="[item.link]"
+     -->
+  
+      <mat-list-item id="menupunkter" *ngFor="let item of navigation" >
+                 <a [routerLink]="[item.link]"
+                 routerLinkActive="active">
+                 <mat-icon id="menuikon" (click)="onSidenavToggle()">{{item?.icon}}</mat-icon>
+                 <span id="menutitel">   {{item.label | translate}}</span>
+             
+         
+                  <span id="status">   {{item?.status}}
+                  
+
+                  </span>
+
+          
+            
+               
+                  </a>
+             
+                      <mat-divider></mat-divider>
+
+            
+      </mat-list-item>
+ 
+
+             </mat-nav-list>
+         
+            
+  
+     
+   
+             <div class="loginknapper" style="min-width: 72px;" *ngIf="auth.user$ | async as user; else login">
+    
+              <!-- 
+                   {{ user | json }} -->
+             
+                   <h5>Log ud</h5>
+                   <button mat-mini-fab color="accent" class="button" (click)="auth.signOut()">
+
+                    <mat-icon matSuffix>exit_to_app</mat-icon>
+                  </button>
+                 
+               
+               </div>
+               
+               <ng-template #login>
+                 <div class="loginknapper">
+             
+             <h5>Log ind</h5>
+                  <button mat-mini-fab color="accent" class="button" routerLink="akademi/kurser">
+
+                    <mat-icon matSuffix>account_circle</mat-icon>
+                  </button>
+               </div>
+              
+              
+              </ng-template> 
+           </div>
+         </div>
+           </mat-sidenav>
+       
+           <div class="wrapper">
+             <div class="header">
+                  <mat-toolbar  mode="push" color="primary" class="main-toolbar topmenu">
+         
+               
+<span class="hurtigmenu">
+                <!--  <button mat-icon-button (click)="sidenav.open()"> -->
+                 <button mat-icon-button (click)="sidenav.toggle()">
+                <mat-icon id="menuikon">menu_open</mat-icon>
+       
+                 </button>
+
+                 <a routerLink="oversigt">
+                  <button mat-icon-button matTooltip="Oversigt">
+                    <mat-icon id="menuikon">home</mat-icon>
+
+                     </button>
+                    </a>
+                    <a routerLink="udvikling">
+                    <button mat-icon-button matTooltip="Din udvikling">
+                      <mat-icon id="menuikon">trending_up</mat-icon>
+                       </button>
+                       </a>
+
+
+     <a routerLink="opgaver/kalender">
+                 <button mat-icon-button matTooltip="Din kalender">
+                   <mat-icon id="menuikon">today</mat-icon>
+                    </button>
+                   </a>
+                   <a routerLink="assistent">
+                    <button mat-icon-button matTooltip="Chat">
+                      <mat-icon id="menuikon">chat</mat-icon>
+                       </button>
+                      </a>
+<!-- 
+                      <a routerLink="beskeder">
+                    <button mat-icon-button matTooltip="Beskeder">
+                     <mat-icon id="menuikon">email</mat-icon>
+                   </button>
+                  </a>
+                  -->
+     
+                     <a routerLink="opgave">
+                     <button mat-icon-button matTooltip="Dine opgaver">
+                       <mat-icon id="menuikon">assignment_turned_in</mat-icon>
+                        </button>
+                       </a>
+                    
+
+                          <a routerLink="akademi/kurser">
+                            <button mat-icon-button matTooltip="Akademiet">
+                                            <mat-icon id="menuikon">school</mat-icon>
+                                             </button>
+                                             </a>
+                   <a routerLink="bibliotek">
+                    <button mat-icon-button matTooltip="Bibliotek">
+                     <mat-icon id="menuikon">local_library</mat-icon>
+                     </button>
+                    </a>
+      
+             <!--    <a routerLink="projekt/projektoversigt">-->    
+              <a routerLink="projekt">
+                      <button mat-icon-button matTooltip="Projekt">
+                       <mat-icon id="menuikon">dynamic_feed</mat-icon>
+                       </button>
+                      </a>
+                
+                    </span>
+     
+      
+                 <span id="languageSelector">
+                  <mat-icon>language</mat-icon>
+
+                  <mat-select 
+                 (selectionChange)="switchLang($event.value)"
+                  >
+                    <mat-option *ngFor="let language of translate.getLangs()"
+                    [value]="language"
+                    >
+                      {{ language.toUpperCase() }}
+                    </mat-option>
+                  </mat-select>
+             
+                </span>
+           
+                <span fxHide.lt-md class="logoblock">{{ 'anms.title.short' | translate}}
+                   
+                  <img class="logo" src="../../assets/svg/logo.svg" />
+                   </span>
+                
+         
+          
+               </mat-toolbar>
+              </div>
+       
+       
+          
+       <!-- 
+        <div class="content" [@routeAnimations]="o.isActivated && o.activatedRoute.routeConfig.data && o.activatedRoute.routeConfig.data.title">
+               
+             <router-outlet #o="outlet"></router-outlet>
+        
+             </div>-->
+             <router-outlet></router-outlet>
+       
+            </div>
+       <app-player></app-player>
+    
+       
+         </mat-sidenav-container>
+     

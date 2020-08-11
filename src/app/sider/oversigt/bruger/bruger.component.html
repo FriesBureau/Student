@@ -1,0 +1,50 @@
+
+
+<!-- -->
+<div class="bruger">
+<mat-list id="brugerliste" color="accent" *ngIf="auth.user$ | async as user;"> 
+  <h3 mat-subheader>Bruger</h3>
+  <mat-list-item>
+    <mat-icon color="primary" mat-list-icon>person</mat-icon>
+    <h4 mat-line>Bruger</h4>
+    <img class="billedramme" [src]="user.photoURL" width="75px">
+    <h5 mat-line>{{ user.displayName }}</h5>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+  <mat-list-item>
+    <mat-icon color="primary" mat-list-icon>email</mat-icon>
+    <h4 mat-line>E-mail</h4>
+    <h5 mat-line>{{ user.email }}</h5>
+
+    <mat-divider></mat-divider>
+  </mat-list-item>
+
+  <mat-list-item>
+    <mat-icon color="primary" mat-list-icon>payment</mat-icon>
+    <h4 mat-line>Subscription</h4>
+    <h5 mat-line>{{ user.email }}</h5>
+
+    <mat-divider></mat-divider>
+  </mat-list-item>
+
+  <mat-list-item class="log-out" (click)="auth.signOut()">
+    <mat-icon color="primary" mat-list-icon>exit_to_app</mat-icon>
+    <h4 mat-line>Log ud</h4>
+
+    <mat-divider></mat-divider>
+  </mat-list-item>
+  
+  <mat-list-item class="delete-user" (click)="deleteUser()">
+    <mat-icon color="primary" mat-list-icon>delete_forever</mat-icon>
+    <h4 mat-line>Slet din bruger og data</h4>
+
+    <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-list>
+
+</div>
+
+
+<ng-template #login>
+  <button class="button" (click)="auth.googleSignin()">Log ind med Google</button>
+</ng-template>

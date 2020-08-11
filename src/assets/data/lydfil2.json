@@ -1,0 +1,24 @@
+     {
+      url:
+        'http://live-icy.gss.dr.dk:8000/A/A03H.mp3',
+      name: 'Hej med dig',
+      artist: ' DR' 
+    },
+    {
+      url:
+        'http://live-icy.gss.dr.dk:8000/A/A04H.mp3',
+      name: 'P2',
+      artist: ' DR' 
+    },
+    {
+      url:
+        'http://live-icy.gss.dr.dk:8000/A/A05H.mp3',
+      name: 'P3',
+      artist: ' DR' 
+    },
+    {
+      url:
+        'http://live-icy.gss.dr.dk:8000/A/A08H.mp3',
+      name: 'P4 København',
+      artist: ' DR' 
+    }

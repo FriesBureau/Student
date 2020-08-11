@@ -1,0 +1,124 @@
+ 
+
+    .main-toolbar {
+      background: beige;
+      .spacer {
+        flex: 1 1 auto;
+        align-items: center;
+      }
+
+
+      .toolbar-btn {
+        font-size: 16px;
+        margin-right:5px;
+        cursor: pointer;
+      }
+    }
+  
+    .content {
+      .logo {
+        margin: 2.5rem;
+        text-align: center;
+        font-size:24px;
+        color: #3f51b5;
+        .mat-icon{
+          height:120px !important;
+          width:120px !important;
+          font-size:120px !important;
+        }
+      }
+    }
+
+    .mat-list-base .mat-list-item.mat-2-line, .mat-list-base .mat-list-option.mat-2-line {
+      min-height: 72px;
+      cursor: pointer;
+  }
+  
+   
+ 
+
+  .delete-user { 
+    cursor: pointer;
+  }
+ 
+
+.playliste {
+  max-height: 200px;
+  overflow: scroll;
+  transition: all 2s;
+  display: flex;
+  width: 100%;
+
+ h4, .h4, h5, .h5 {
+    font-size: 12px !important;
+  }
+
+  }
+
+  .file-playing {
+  position: absolute;
+  top: 5px;
+  left: 50px;
+}
+
+#lessonaudio {
+max-width: 100%;
+min-width: 200px;
+}
+
+#playerpanel {
+  margin: auto;
+max-width: 100%;
+display: flex;
+align-items: center;
+    justify-content: center;
+}
+
+#playerfunctions {
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+  #radiobutton, #audiobutton {
+    cursor: pointer; 
+    margin: 0 1rem;
+  }
+  }
+
+  #playervolume {
+    display: inline-flex;
+    width: 100px;
+    margin-right: 5%;
+    position: relative;
+    justify-content: space-around;
+     
+
+   
+  .mat-slider-vertical  {
+
+    position: absolute;
+    width: 48px;
+    height: 100px;
+    bottom: 0;
+    transition: all .5s;
+  }  }
+
+  .mat-icon  {
+    cursor: pointer;
+        }
+
+        .mat-slider-vertical .mat-slider-wrapper {
+          width: 2px;
+          bottom: 0 !important;
+          left: 23px;
+          height: 100px !important;
+          top: auto !important;
+          transition: all .5s;
+      }
+
+      #toggleVolume {
+        margin-left: auto;
+      }
+  

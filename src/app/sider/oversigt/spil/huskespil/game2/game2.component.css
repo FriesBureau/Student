@@ -1,0 +1,23 @@
+.myAnimal{
+	width: 80px;
+	height: 80px;
+	color: white;
+	border-radius: 50%;
+	line-height: 80px;
+	text-align: center;
+    cursor: pointer;
+}
+
+.left{	
+	background-color: #68ad68;
+}
+
+
+.right{	
+	background-color: #a83295;
+}
+
+.selected{
+	background-color: grey;
+}
+

@@ -1,0 +1,15 @@
+// @import "src/@fuse/scss/fuse";
+
+app-dokumentliste {
+    width: 100%;
+
+    .mat-table {
+      
+
+        .mat-row {
+            position: relative;
+            cursor: pointer;
+            min-height: 64px;
+        }
+    }
+}

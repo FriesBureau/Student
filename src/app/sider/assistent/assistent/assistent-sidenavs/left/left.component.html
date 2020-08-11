@@ -1,0 +1,13 @@
+<div [ngSwitch]="view" class="views">
+    <assistent-chats-sidenav class="view"
+                        *ngSwitchCase="'chats'"
+                        [@slideInRight]>
+    </assistent-chats-sidenav>
+
+    <assistent-user-sidenav class="view"
+                       *ngSwitchCase="'user'"
+                       >
+    </assistent-user-sidenav>
+
+</div>
+
